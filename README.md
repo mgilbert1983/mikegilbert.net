@@ -51,3 +51,5 @@ Every project has `images/share.jpg` (1200 x 630); the site default is `assets/i
 1. Create a `_source` folder in the repository (it is git-ignored). Mirror the site folders inside it and drop in full size originals with the same names as the slots, for example `_source/projects/rick-and-morty/image-001.png` or `_source/home/images/rick-and-morty_rollover.psd`.
 2. Run `pip install pillow` once, then `python3 tools/portfolio.py export`.
 3. Each file is resized to its slot size, compressed and written over the placeholder. Tiles and banners are centre cropped to fit, logos are fitted with a transparent background. PSD files export the flattened composite.
+
+4. Website preview deployment
