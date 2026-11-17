@@ -82,53 +82,25 @@ width: 100%;
     margin: 0;
 }
 
-.skills-groups {
-    display: grid !important;
-    grid-template-columns: 2fr 1fr 1.2fr;
-    align-items: start;
-    gap: 20px;
+.skills {
+    display: block;
     width: 100%;
-    margin: 12px 0;
+    margin: 8px 0;
+    line-height: 1.6;
 }
 
-.skills-list {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: flex-start;
-    gap: 5px 10px;
-    min-width: 0;
-    margin: 0;
-}
-
-.skills-list > span {
-    display: inline-flex !important;
-    flex-direction: row !important;
-    align-items: baseline;
-    white-space: nowrap;
-    color: #000000 !important;
-    font-weight: normal;
-}
-
-.skills-list > span i {
-    color: #0669e0 !important;
-    font-style: normal;
-    margin-right: 4px;
-}
-
-.skills-list > span b {
-    color: #000000 !important;
-    font-weight: normal;
+.skills span {
+    color: #000000;
     transition: color 0.2s ease;
+    white-space: nowrap;
 }
 
-.skills-list > span b:hover {
+.skills span:hover {
+    color: #0669e0;
+}
+
+.skills b {
     color: #0669e0 !important;
-}
-
-@media (max-width: 600px) {
-    .skills-groups {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
+    font-weight: bold;
+    margin: 0 3px;
 }
