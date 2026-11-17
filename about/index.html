@@ -76,19 +76,12 @@ b,
 
 /* Section headings: 25% smaller than the site default */
 h2 {
-    font-size: clamp(15px, 1.8vw, 24px);
+    text-align: left;
+    border-bottom: 2px solid #0669e0;
+    width: 100%;
+    padding-bottom: 10px;
+    box-sizing: border-box;
 }
-
-/* Star bullet: matches heading text height, tight gap before the text */
-h2 .sb {
-    display: inline-block;
-    height: 0.75em;
-    width: auto;
-    max-width: none;
-    margin-right: 0.2em;
-    vertical-align: baseline;
-}
-
 /* Touchscreen-friendly default behaviour */
 @media (hover: none) {
     .sl span:hover {
