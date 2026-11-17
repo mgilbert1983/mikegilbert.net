@@ -4,13 +4,12 @@ const f=document.getElementById('cf');
 if(f)f.onsubmit=async e=>{e.preventDefault();const s=document.getElementById('st');s.textContent='Sending...';
 try{const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});
 if(r.ok){f.reset();s.textContent='Message sent. Thank you.'}else throw 0}catch(_){s.textContent='Message failed. Please email me directly.'}};
-/* extras: video rollovers, signature replay, lightbox, scroll reveal */
+/* extras: video rollovers, lightbox, scroll reveal */
 {
 const q=s=>document.querySelectorAll(s);
 if(matchMedia('(hover:hover)').matches){
 document.addEventListener('mouseover',e=>{const a=e.target.closest&&e.target.closest('.ro[data-v]');if(!a||a.bad)return;let v=a.v;if(!v){v=a.v=document.createElement('video');v.muted=v.loop=v.playsInline=true;v.preload='none';v.onerror=()=>{a.bad=1;v.remove()};v.onplaying=()=>v.classList.add('p');v.src=a.dataset.v;a.append(v)}v.play().catch(()=>{})});
-document.addEventListener('mouseout',e=>{const a=e.target.closest&&e.target.closest('.ro[data-v]');if(a&&a.v&&!a.contains(e.relatedTarget))a.v.pause()});
-let t;document.addEventListener('mouseover',e=>{const h=e.target.closest&&e.target.closest('.home');if(!h||h.contains(e.relatedTarget))return;const i=h.querySelector('img');i.dataset.s=i.dataset.s||i.src;const g=i.dataset.g||i.dataset.s.replace('logo.png','MIKE_SIGNATURE.gif');clearTimeout(t);i.src=g+'#'+Date.now();t=setTimeout(()=>{i.src=i.dataset.s},2750)})}
+document.addEventListener('mouseout',e=>{const a=e.target.closest&&e.target.closest('.ro[data-v]');if(a&&a.v&&!a.contains(e.relatedTarget))a.v.pause()});}
 let o,im,c,i,last;const L=()=>[...q('[data-lb]')];
 const go=d=>{const g=L();i=(i+d+g.length)%g.length;im.src=g[i].currentSrc||g[i].src;im.alt=g[i].alt;c.textContent=(i+1)+' / '+g.length};
 const cl=()=>{o.remove();document.body.classList.remove('lbo');last&&last.focus()};
