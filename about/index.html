@@ -16,6 +16,7 @@
 <meta property="og:image" content="https://www.mikegilbert.net/assets/img/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../assets/css/style.css">
+
 <style>
 /* Keep the two About banners completely flush */
 .about-banners {
@@ -25,6 +26,7 @@
     line-height: 0 !important;
     border: 0 !important;
 }
+
 .about-banners img {
     display: block !important;
     width: 100% !important;
@@ -33,7 +35,49 @@
     padding: 0 !important;
     border: 0 !important;
 }
+
+/* Full-width biography */
+.bio {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.bio > div {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Productions, Studios and Clients rollover */
+.sl {
+    color: #000000;
+}
+
+.sl span {
+    color: #000000;
+    transition: color 0.2s ease;
+}
+
+.sl span:hover {
+    color: #0669e0;
+}
+
+/* Keep slash separators black */
+.sl b {
+    color: #000000 !important;
+}
+
+/* Touchscreen-friendly default behaviour */
+@media (hover: none) {
+    .sl span:hover {
+        color: #000000;
+    }
+}
 </style>
+
 <script>
 try {
     if (sessionStorage.s) {
@@ -47,13 +91,16 @@ try {
 
 <body class="">
 <div class="wrap">
+
 <header>
 <a class="home" href="../home/index.html" aria-label="Home">
 <img src="../assets/img/logo.png" width="600" height="283" alt="Mike Gilbert">
 </a>
+
 <button class="mt" aria-expanded="false" aria-controls="nav" aria-label="Menu">
 <i></i><i></i><i></i>
 </button>
+
 <nav id="nav" aria-label="Main">
 <a href="../animation/index.html">Animation</a>
 <a href="../illustration/index.html">Illustration</a>
@@ -66,69 +113,127 @@ try {
 
 <main>
 
+<!-- About banners -->
 <div class="about-banners">
 <img src="images/banner_static.jpg" width="2000" height="600" alt="About Banner" loading="eager" decoding="async">
 <img src="images/banner_2_static.jpg" width="2000" height="600" alt="About Banner 2" loading="eager" decoding="async">
 </div>
 
+<!-- Full-width biography -->
 <div class="bio">
 <div>
 <p>Creative professional with 20+ years of experience shaping visual content across broadcast animation, graphic design, motion graphics, and digital media. Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design. Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and delivering to demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
 </div>
-
-<div class="ro circ">
-<img class="s" src="images/profile_static.jpg" width="800" height="800" alt="Mike Gilbert" loading="lazy" decoding="async">
-</div>
 </div>
 
 <h2>Productions</h2>
-<p class="sl">Rick and Morty <b>/</b> My Little Pony: Friendship Is Magic <b>/</b> Star Trek: Lower Decks <b>/</b> Ren &amp; Stimpy <b>/</b> Curious George <b>/</b> Cleopatra in Space <b>/</b> Carol &amp; the End of the World <b>/</b> Polly Pocket <b>/</b> Trailer Park Boys: Greasy Money <b>/</b> It’s Always Sunny: The Gang Goes Mobile <b>/</b> Archibald’s Next Big Thing <b>/</b> Yin Yang Yo! <b>/</b> George of the Jungle <b>/</b> Ricky Sprockets: Showbiz Boy <b>/</b> Class of the Titans <b>/</b> Happy Tree Friends <b>/</b> Birdgirl <b>/</b> Jam Van <b>/</b> The New Ruff Ruffman Show! <b>/</b> Plum Landing <b>/</b> Ella the Elephant</p>
+
+<p class="sl">
+<span>Rick and Morty</span> <b>/</b>
+<span>My Little Pony: Friendship Is Magic</span> <b>/</b>
+<span>Star Trek: Lower Decks</span> <b>/</b>
+<span>Ren &amp; Stimpy</span> <b>/</b>
+<span>Curious George</span> <b>/</b>
+<span>Cleopatra in Space</span> <b>/</b>
+<span>Carol &amp; the End of the World</span> <b>/</b>
+<span>Polly Pocket</span> <b>/</b>
+<span>Trailer Park Boys: Greasy Money</span> <b>/</b>
+<span>It’s Always Sunny: The Gang Goes Mobile</span> <b>/</b>
+<span>Archibald’s Next Big Thing</span> <b>/</b>
+<span>Yin Yang Yo!</span> <b>/</b>
+<span>George of the Jungle</span> <b>/</b>
+<span>Ricky Sprockets: Showbiz Boy</span> <b>/</b>
+<span>Class of the Titans</span> <b>/</b>
+<span>Happy Tree Friends</span> <b>/</b>
+<span>Birdgirl</span> <b>/</b>
+<span>Jam Van</span> <b>/</b>
+<span>The New Ruff Ruffman Show!</span> <b>/</b>
+<span>Plum Landing</span> <b>/</b>
+<span>Ella the Elephant</span>
+</p>
 
 <hr>
 
 <h2>Studios</h2>
-<p class="sl">Atomic Cartoons <b>/</b> Wildbrain <b>/</b> Bardel Entertainment <b>/</b> Titmouse Animation <b>/</b> Global Mechanic <b>/</b> Awesome, Inc. <b>/</b> Mercury Filmworks <b>/</b> + others</p>
+
+<p class="sl">
+<span>Atomic Cartoons</span> <b>/</b>
+<span>Wildbrain</span> <b>/</b>
+<span>Bardel Entertainment</span> <b>/</b>
+<span>Titmouse Animation</span> <b>/</b>
+<span>Global Mechanic</span> <b>/</b>
+<span>Awesome, Inc.</span> <b>/</b>
+<span>Mercury Filmworks</span> <b>/</b>
+<span>+ others</span>
+</p>
 
 <hr>
 
 <h2>Clients</h2>
-<p class="sl">Netflix <b>/</b> MTV <b>/</b> YouTube Originals <b>/</b> Hasbro <b>/</b> Adult Swim <b>/</b> Crave <b>/</b> FX <b>/</b> Dreamworks Animation <b>/</b> Nestlé <b>/</b> Unilever <b>/</b> CBS <b>/</b> YTV <b>/</b> Mattel <b>/</b> PBS/WGBH <b>/</b> Jetix <b>/</b> Bullwinkle</p>
+
+<p class="sl">
+<span>Netflix</span> <b>/</b>
+<span>MTV</span> <b>/</b>
+<span>YouTube Originals</span> <b>/</b>
+<span>Hasbro</span> <b>/</b>
+<span>Adult Swim</span> <b>/</b>
+<span>Crave</span> <b>/</b>
+<span>FX</span> <b>/</b>
+<span>Dreamworks Animation</span> <b>/</b>
+<span>Nestlé</span> <b>/</b>
+<span>Unilever</span> <b>/</b>
+<span>CBS</span> <b>/</b>
+<span>YTV</span> <b>/</b>
+<span>Mattel</span> <b>/</b>
+<span>PBS/WGBH</span> <b>/</b>
+<span>Jetix</span> <b>/</b>
+<span>Bullwinkle</span>
+</p>
 
 <hr>
 
 <div class="g4 w">
+
 <div class="ro a16">
 <img class="s" src="images/image-001_static.jpg" width="1200" height="750" alt="Image 1" loading="lazy" decoding="async">
 <img class="r" src="images/image-001_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 <div class="ro a16">
 <img class="s" src="images/image-002_static.jpg" width="1200" height="750" alt="Image 2" loading="lazy" decoding="async">
 <img class="r" src="images/image-002_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 <div class="ro a16">
 <img class="s" src="images/image-003_static.jpg" width="1200" height="750" alt="Image 3" loading="lazy" decoding="async">
 <img class="r" src="images/image-003_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 <div class="ro a16">
 <img class="s" src="images/image-004_static.jpg" width="1200" height="750" alt="Image 4" loading="lazy" decoding="async">
 <img class="r" src="images/image-004_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 <div class="ro a16">
 <img class="s" src="images/image-005_static.jpg" width="1200" height="750" alt="Image 5" loading="lazy" decoding="async">
 <img class="r" src="images/image-005_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 <div class="ro a16">
 <img class="s" src="images/image-006_static.jpg" width="1200" height="750" alt="Image 6" loading="lazy" decoding="async">
 <img class="r" src="images/image-006_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 <div class="ro a16">
 <img class="s" src="images/image-007_static.jpg" width="1200" height="750" alt="Image 7" loading="lazy" decoding="async">
 <img class="r" src="images/image-007_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 <div class="ro a16">
 <img class="s" src="images/image-008_static.jpg" width="1200" height="750" alt="Image 8" loading="lazy" decoding="async">
 <img class="r" src="images/image-008_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 </div>
 
 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit est voluptate in excepturi sed fugiat voluptas nihil sed consectetur libero occaecat odio dolorem deserunt quo iusto tempore enim dolorem duis voluptate fugiat qui dolor sit excepturi consequat possimus blanditiis aute quas voluptate magna nihil pariatur enim aute et sint quod occaecat.</p>
