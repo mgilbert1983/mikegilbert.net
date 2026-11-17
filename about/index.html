@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://www.mikegilbert.net/about/index.html">
 <meta property="og:image" content="https://www.mikegilbert.net/assets/img/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../assets/css/style.css?v=3">
+<link rel="stylesheet" href="../assets/css/style.css?v=4">
 
 <style>
 /* Keep the two About banners completely flush */
@@ -71,13 +71,43 @@ b,
     color: #0669e0 !important;
 }
 
-/* Star bullet beside section headings */
+/* Section headings: 25% smaller than the site default */
+h2 {
+    font-size: clamp(15px, 1.8vw, 24px);
+}
+
+/* Star bullet: matches heading text height, tight gap before the text */
 h2 .sb {
     display: inline-block;
     height: 0.75em;
     width: auto;
     max-width: none;
+    margin-right: 0.2em;
     vertical-align: baseline;
+}
+
+/* Dividers: spaced en dashes, justified so both ends sit flush */
+.dv {
+    display: block;
+    height: 1em;
+    margin-top: clamp(20px, 3.2vw, 48px);
+    margin-bottom: clamp(20px, 3.2vw, 48px);
+    overflow: hidden;
+    font-size: inherit;
+    font-weight: 400;
+    line-height: 1;
+    color: #000000;
+    word-spacing: 0.5em;
+    text-align: justify;
+    user-select: none;
+}
+
+.dv::before {
+    content: "– – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – –";
+}
+
+footer .dv {
+    margin: 0 0 0.6em;
 }
 
 /* Touchscreen-friendly default behaviour */
@@ -96,7 +126,7 @@ try {
     }
 } catch(e) {}
 </script>
-<script src="../assets/js/main.js?v=3" defer></script>
+<script src="../assets/js/main.js?v=4" defer></script>
 </head>
 
 <body class="">
@@ -182,7 +212,7 @@ try {
 
 </div>
 
-<h2><img class="sb" src="images/STAR_BULLET.png" alt="" aria-hidden="true" decoding="async"> Productions</h2>
+<h2><img class="sb" src="images/STAR_BULLET.png" alt="" aria-hidden="true" decoding="async">Productions</h2>
 
 <p class="sl">
 <span>Rick and Morty</span> <b>/</b>
@@ -208,9 +238,9 @@ try {
 <span>Ella the Elephant</span>
 </p>
 
-<hr>
+<div class="dv" aria-hidden="true"></div>
 
-<h2><img class="sb" src="images/STAR_BULLET.png" alt="" aria-hidden="true" decoding="async"> Studios</h2>
+<h2><img class="sb" src="images/STAR_BULLET.png" alt="" aria-hidden="true" decoding="async">Studios</h2>
 
 <p class="sl">
 <span>Atomic Cartoons</span> <b>/</b>
@@ -223,9 +253,9 @@ try {
 <span>+ others</span>
 </p>
 
-<hr>
+<div class="dv" aria-hidden="true"></div>
 
-<h2><img class="sb" src="images/STAR_BULLET.png" alt="" aria-hidden="true" decoding="async"> Clients</h2>
+<h2><img class="sb" src="images/STAR_BULLET.png" alt="" aria-hidden="true" decoding="async">Clients</h2>
 
 <p class="sl">
 <span>Netflix</span> <b>/</b>
@@ -246,7 +276,7 @@ try {
 <span>Bullwinkle</span>
 </p>
 
-<hr>
+<div class="dv" aria-hidden="true"></div>
 
 <!-- Freelance availability -->
 <p><b>Currently available for freelance, contract, and full-time opportunities across animation, graphic design, motion graphics, and digital media.</b> Open to joining creative teams, supporting ongoing productions, or taking on individual projects requiring a skilled and adaptable creative professional. Welcoming new collaborations, commissions, and opportunities across the entertainment, broadcast, advertising, and commercial sectors.</p>
@@ -257,7 +287,7 @@ try {
 </div>
 
 <footer>
-<hr>
+<div class="dv" aria-hidden="true"></div>
 <p>&copy; 2026 Mike Gilbert. All rights reserved.</p>
 </footer>
 
