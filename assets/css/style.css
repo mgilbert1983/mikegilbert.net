@@ -76,3 +76,24 @@ footer hr{margin:0 0 .6em}
     height: 2px;
     background-color: #0669e0;
 }
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin: 12px 0;
+}
+
+.skills-list span {
+    color: #000000;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.skills-list span::first-letter {
+    color: #0669e0;
+}
+
+.skills-list span:hover {
+    color: #0669e0;
+}
