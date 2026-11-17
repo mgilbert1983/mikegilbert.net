@@ -14,7 +14,10 @@
 <meta property="og:url" content="https://www.mikegilbert.net/about/index.html">
 <meta property="og:image" content="https://www.mikegilbert.net/assets/img/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../assets/css/style.css?v=4">
+<link rel="preload" href="../assets/fonts/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/Gotham-Ultra.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/style.css?v=5">
 
 <style>
 /* Keep the two About banners completely flush */
@@ -86,30 +89,6 @@ h2 .sb {
     vertical-align: baseline;
 }
 
-/* Dividers: spaced en dashes, justified so both ends sit flush */
-.dv {
-    display: block;
-    height: 1em;
-    margin-top: clamp(20px, 3.2vw, 48px);
-    margin-bottom: clamp(20px, 3.2vw, 48px);
-    overflow: hidden;
-    font-size: inherit;
-    font-weight: 400;
-    line-height: 1;
-    color: #000000;
-    word-spacing: 0.5em;
-    text-align: justify;
-    user-select: none;
-}
-
-.dv::before {
-    content: "– – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – –";
-}
-
-footer .dv {
-    margin: 0 0 0.6em;
-}
-
 /* Touchscreen-friendly default behaviour */
 @media (hover: none) {
     .sl span:hover {
@@ -126,7 +105,7 @@ try {
     }
 } catch(e) {}
 </script>
-<script src="../assets/js/main.js?v=4" defer></script>
+<script src="../assets/js/main.js?v=5" defer></script>
 </head>
 
 <body class="">
@@ -238,7 +217,7 @@ try {
 <span>Ella the Elephant</span>
 </p>
 
-<div class="dv" aria-hidden="true"></div>
+<hr>
 
 <h2><img class="sb" src="images/STAR_BULLET.png" alt="" aria-hidden="true" decoding="async">Studios</h2>
 
@@ -253,7 +232,7 @@ try {
 <span>+ others</span>
 </p>
 
-<div class="dv" aria-hidden="true"></div>
+<hr>
 
 <h2><img class="sb" src="images/STAR_BULLET.png" alt="" aria-hidden="true" decoding="async">Clients</h2>
 
@@ -276,7 +255,7 @@ try {
 <span>Bullwinkle</span>
 </p>
 
-<div class="dv" aria-hidden="true"></div>
+<hr>
 
 <!-- Freelance availability -->
 <p><b>Currently available for freelance, contract, and full-time opportunities across animation, graphic design, motion graphics, and digital media.</b> Open to joining creative teams, supporting ongoing productions, or taking on individual projects requiring a skilled and adaptable creative professional. Welcoming new collaborations, commissions, and opportunities across the entertainment, broadcast, advertising, and commercial sectors.</p>
@@ -287,7 +266,7 @@ try {
 </div>
 
 <footer>
-<div class="dv" aria-hidden="true"></div>
+<hr>
 <p>&copy; 2026 Mike Gilbert. All rights reserved.</p>
 </footer>
 
