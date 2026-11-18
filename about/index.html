@@ -21,62 +21,33 @@
 .about-banners{display:block;margin:0!important;padding:0!important;line-height:0!important;border:0!important}
 .about-banners img{display:block!important;width:100%!important;height:auto!important;margin:0!important;padding:0!important;border:0!important}
 
-/* Global blue styling for bold text */
+/* Bold text is always blue */
 strong,b,.bold{color:#0669e0!important}
 
-/* Page rhythm: generous, consistent space between sections */
-.about{--sec:clamp(36px,5vw,72px)}
-.about>*+*{margin-top:var(--sec)}
-.about>.intro{margin-top:0}
-.about>.g4{margin-top:clamp(20px,3vw,40px)}
-.about p{text-align:left}
+/* One spacing value: identical space above and below every section */
+.about{--sp:clamp(32px,4.5vw,64px);display:flex;flex-direction:column;gap:var(--sp)}
+.about>*{margin:0}
 
-/* ---------- Intro ---------- */
-.intro{padding-top:clamp(20px,3vw,44px)}
-.intro .lead{max-width:30em;font-size:clamp(20px,2.5vw,36px);line-height:1.3;letter-spacing:.03em;font-weight:300;text-align:left}
-.intro .lead strong{font-weight:900}
-.intro .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3.5vw,56px);margin-top:clamp(20px,2.6vw,36px);padding-top:clamp(18px,2.2vw,28px);border-top:1px dashed #000}
-.intro .cols p{max-width:60ch;line-height:1.7}
+/* Descriptive text: full width, justified, hyphenated */
+.about .txt{width:100%;max-width:none;font-size:clamp(13px,1.15vw,17px);line-height:1.7;text-align:justify;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+.about .txt strong{font-weight:900}
 
-/* ---------- Section heads ---------- */
-.sh{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:12px;margin-bottom:clamp(12px,1.6vw,22px);border-bottom:1px dashed #000}
-.sh h2{margin:0}
-.sh .ct{font-size:.9em;letter-spacing:.14em;color:var(--g)}
+/* Button (matches the contact form button) */
+.btn{display:block;width:fit-content;margin:calc(var(--sp) * .5) auto 0;background:#000;color:#fff;text-decoration:none;padding:14px 34px;font-weight:900;font-size:clamp(13px,1.1vw,16px);letter-spacing:.14em;text-transform:uppercase;transition:background .2s}
+.btn:hover,.btn:focus-visible{background:var(--p)}
 
-/* ---------- Expertise tags ---------- */
-.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
-.tags li{padding:8px 14px;border:2px solid #282828;line-height:1.2;letter-spacing:.1em;transition:background .2s,color .2s,border-color .2s}
-.tags li.hl{background:#282828;color:#fff}
-@media(hover:hover){.tags li:hover{background:#0669e0;border-color:#0669e0;color:#fff}}
-
-/* ---------- Credits ---------- */
-.cl{list-style:none;padding:0;columns:3 210px;column-gap:clamp(18px,2.8vw,44px)}
-.cl.c2{columns:2 180px}
-.cl.c1{columns:1}
-.cl li{break-inside:avoid;padding:9px 0;border-bottom:1px solid #dcdcdc;color:#000;transition:color .2s,padding-left .2s,border-color .2s}
-.cl li.more{color:var(--g);border-bottom-color:transparent}
-@media(hover:hover){.cl li:not(.more):hover{color:#0669e0;padding-left:8px;border-bottom-color:#0669e0}}
-.duo{display:grid;grid-template-columns:1fr 2fr;gap:clamp(24px,4vw,64px)}
-
-/* ---------- Availability ---------- */
-.cta{background:var(--p);color:#fff;padding:clamp(24px,4vw,56px);display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(20px,4vw,56px);align-items:end}
-.cta .big{font-weight:900;font-size:clamp(18px,2.1vw,30px);line-height:1.25;letter-spacing:.06em;text-transform:uppercase;text-align:left}
-.cta .sub{margin-top:clamp(12px,1.6vw,20px);max-width:56ch;line-height:1.7}
-.cta .side{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
-.cta .roles{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.cta .roles li{border:2px solid #fff;padding:7px 14px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase}
-.cta .btn{display:inline-block;background:#fff;color:#000;text-decoration:none;padding:16px 38px;font-weight:900;font-size:clamp(13px,1.1vw,16px);letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s}
-.cta .btn:hover,.cta .btn:focus-visible{background:#000;color:#fff}
-.cta .btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
-
-/* ---------- Responsive ---------- */
-@media(max-width:900px){.cta{grid-template-columns:1fr;align-items:start}}
-@media(max-width:760px){
-  .intro .cols,.duo{grid-template-columns:1fr}
-  .cl,.cl.c2{columns:1}
-  .sh{flex-direction:column;gap:2px}
-}
+/* Symbol-separated lists: centered, with a flanked title */
+.ch{display:flex;align-items:center;gap:clamp(14px,2vw,28px);margin-bottom:clamp(14px,1.8vw,24px)}
+.ch::before,.ch::after{content:"";flex:1;border-top:1px dashed #000}
+.ch h2{margin:0;color:#0669e0;text-align:center;white-space:nowrap}
+.sep{list-style:none;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4em 0;text-align:center;line-height:1.5}
+.sep li{color:#000;transition:color .2s}
+.sep li:not(:last-child)::after{content:"/";margin:0 .7em;color:#0669e0;font-weight:900}
+.sep.lg{font-size:clamp(15px,1.75vw,25px);font-weight:500}
+.sep.md{font-size:clamp(13px,1.3vw,19px)}
+@media(hover:hover){.sep li:hover{color:#0669e0}}
 </style>
+<link rel="stylesheet" href="../assets/css/parallax-banner.css">
 
 <script>
 try {
@@ -87,6 +58,7 @@ try {
 } catch(e) {}
 </script>
 <script src="../assets/js/main.js?v=2" defer></script>
+<script src="../assets/js/parallax-banner.js" defer></script>
 </head>
 
 <body class="">
@@ -121,84 +93,54 @@ try {
 </div>
 
 <!-- Biography -->
-<section class="intro" aria-label="Biography">
-<p class="lead"><strong>Vancouver-Based Artist With 20+ Years of Professional Experience</strong> shaping visual content across broadcast animation, graphic design, motion graphics, and digital media.</p>
-<div class="cols">
-<p>Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines a strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design.</p>
-<p>Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
-</div>
-</section>
+<p class="txt"><strong>Vancouver-Based Artist With 20+ Years of Professional Experience</strong> shaping visual content across broadcast animation, graphic design, motion graphics, and digital media. Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines a strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design. Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
 
 <!-- Eight-image rollover gallery -->
 <div class="g4 w">
-
 <div class="ro a16">
 <img class="s" src="images/image-001_static.jpg" width="1200" height="750" alt="Image 1" loading="lazy" decoding="async">
 <img class="r" src="images/image-001_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-
 <div class="ro a16">
 <img class="s" src="images/image-002_static.jpg" width="1200" height="750" alt="Image 2" loading="lazy" decoding="async">
 <img class="r" src="images/image-002_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-
 <div class="ro a16">
 <img class="s" src="images/image-003_static.jpg" width="1200" height="750" alt="Image 3" loading="lazy" decoding="async">
 <img class="r" src="images/image-003_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-
 <div class="ro a16">
 <img class="s" src="images/image-004_static.jpg" width="1200" height="750" alt="Image 4" loading="lazy" decoding="async">
 <img class="r" src="images/image-004_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-
 <div class="ro a16">
 <img class="s" src="images/image-005_static.jpg" width="1200" height="750" alt="Image 5" loading="lazy" decoding="async">
 <img class="r" src="images/image-005_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-
 <div class="ro a16">
 <img class="s" src="images/image-006_static.jpg" width="1200" height="750" alt="Image 6" loading="lazy" decoding="async">
 <img class="r" src="images/image-006_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-
 <div class="ro a16">
 <img class="s" src="images/image-007_static.jpg" width="1200" height="750" alt="Image 7" loading="lazy" decoding="async">
 <img class="r" src="images/image-007_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-
 <div class="ro a16">
 <img class="s" src="images/image-008_static.jpg" width="1200" height="750" alt="Image 8" loading="lazy" decoding="async">
 <img class="r" src="images/image-008_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-
 </div>
 
-<!-- Expertise -->
-<section aria-labelledby="h-exp">
-<div class="sh"><h2 id="h-exp">Expertise</h2></div>
-<ul class="tags">
-<li>Visual Development</li>
-<li>2D Animation Layout</li>
-<li>Illustration</li>
-<li>Art Direction</li>
-<li>Typography</li>
-<li>Compositing</li>
-<li>Motion Graphics</li>
-<li>Graphic Design</li>
-<li>Video Production</li>
-<li>Print</li>
-<li>Image Editing</li>
-<li>Production-Ready Artwork</li>
-<li>Adobe Creative Cloud</li>
-<li>AI-Assisted Workflows</li>
-</ul>
-</section>
+<!-- Parallax banner (reusable: change the text and the background image) -->
+<div class="px" data-parallax>
+<div class="px-bg" style="background-image:url(images/parallax_banner.jpg)"></div>
+<h2 class="px-t">Credits</h2>
+</div>
 
-<!-- Credits -->
+<!-- Productions -->
 <section aria-labelledby="h-prod">
-<div class="sh"><h2 id="h-prod">Productions</h2><span class="ct">21 titles</span></div>
-<ul class="cl">
+<div class="ch"><h2 id="h-prod">Productions</h2></div>
+<ul class="sep lg">
 <li>Rick and Morty</li>
 <li>My Little Pony: Friendship Is Magic</li>
 <li>Star Trek: Lower Decks</li>
@@ -223,10 +165,10 @@ try {
 </ul>
 </section>
 
-<div class="duo">
+<!-- Studios -->
 <section aria-labelledby="h-stu">
-<div class="sh"><h2 id="h-stu">Studios</h2></div>
-<ul class="cl c1">
+<div class="ch"><h2 id="h-stu">Studios</h2></div>
+<ul class="sep md">
 <li>Atomic Cartoons</li>
 <li>Wildbrain</li>
 <li>Bardel Entertainment</li>
@@ -234,13 +176,14 @@ try {
 <li>Global Mechanic</li>
 <li>Awesome, Inc.</li>
 <li>Mercury Filmworks</li>
-<li class="more">+ others</li>
+<li>+ others</li>
 </ul>
 </section>
 
+<!-- Clients -->
 <section aria-labelledby="h-cli">
-<div class="sh"><h2 id="h-cli">Clients</h2><span class="ct">16</span></div>
-<ul class="cl c2">
+<div class="ch"><h2 id="h-cli">Clients</h2></div>
+<ul class="sep md">
 <li>Netflix</li>
 <li>MTV</li>
 <li>YouTube Originals</li>
@@ -259,24 +202,16 @@ try {
 <li>Bullwinkle</li>
 </ul>
 </section>
-</div>
 
-<!-- Feature banner -->
 <div class="ro a33">
 <img class="s" src="images/image-009_static.jpg" width="2000" height="600" alt="Image 9" loading="lazy" decoding="async">
 <img class="r" src="images/image-009_rollover.jpg" width="2000" height="600" alt="" loading="lazy" decoding="async">
 </div>
 
 <!-- Freelance availability -->
-<section class="cta" aria-labelledby="h-avail">
-<div>
-<p class="big" id="h-avail">Currently available for freelance, contract, and full-time opportunities across animation, graphic design, motion graphics, and digital media.</p>
-<p class="sub">Open to joining creative teams, supporting ongoing productions, or taking on individual projects requiring a skilled and adaptable creative professional. Welcoming new collaborations, commissions, and opportunities across the entertainment, broadcast, advertising, and commercial sectors.</p>
-</div>
-<div class="side">
-<ul class="roles"><li>Freelance</li><li>Contract</li><li>Full-time</li></ul>
+<section>
+<p class="txt"><strong>Currently available for freelance, contract, and full-time opportunities across animation, graphic design, motion graphics, and digital media.</strong> Open to joining creative teams, supporting ongoing productions, or taking on individual projects requiring a skilled and adaptable creative professional. Welcoming new collaborations, commissions, and opportunities across the entertainment, broadcast, advertising, and commercial sectors.</p>
 <a class="btn" href="../contact/index.html">Get in touch</a>
-</div>
 </section>
 
 <footer>
