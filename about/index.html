@@ -27,10 +27,13 @@ strong,b,.bold{color:#0669e0!important}
 /* One spacing value: identical space above and below every section */
 .about{--sp:clamp(32px,4.5vw,64px);display:flex;flex-direction:column;gap:var(--sp)}
 .about>*{margin:0}
+.about>.about-banners{margin-bottom:calc(clamp(12px,1.6vw,20px) - var(--sp))}
 
 /* Descriptive text: full width, justified, hyphenated */
 .about .txt{width:100%;max-width:none;font-size:clamp(13px,1.15vw,17px);line-height:1.7;text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 3 3;overflow-wrap:break-word}
-.about .txt strong{font-weight:900}
+.about .txt{font-weight:400}
+.about .txt+.txt{margin-top:1em}
+.about .txt.sum{font-weight:700;color:#0669e0}
 
 /* All section titles are blue (the parallax banner title stays white) */
 .about h2:not(.px-t){color:#0669e0!important}
@@ -106,8 +109,16 @@ try {
 <!-- Biography -->
 <section aria-labelledby="h-bio">
 <div class="ch"><h2 id="h-bio">Mike Gilbert</h2></div>
-<p class="txt" lang="en"><strong>Vancouver-Based Artist With 20+ Years of Professional Experience</strong> shaping visual content across broadcast animation, graphic design, motion graphics, and digital media. Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines a strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design. Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
+<p class="txt sum" lang="en">Vancouver-based animation and graphic design artist with 20+ years of experience across broadcast animation, graphic design, motion graphics, and digital media, with credits on Rick and Morty, My Little Pony: Friendship Is Magic, and Star Trek: Lower Decks. Available for freelance, contract, and full-time work.</p>
+<p class="txt" lang="en">Vancouver-Based Artist With 20+ Years of Professional Experience shaping visual content across broadcast animation, graphic design, motion graphics, and digital media. Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines a strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design.</p>
+<p class="txt" lang="en">Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
 </section>
+
+<!-- Parallax banner (reusable: change the text and the background image) -->
+<div class="px px-half px-left" data-parallax>
+<div class="px-bg" style="background-image:url(images/parallax_banner.jpg)"></div>
+<h2 class="px-t">Proficiencies</h2>
+</div>
 
 <!-- Eight-image rollover gallery -->
 <div class="g4 w">
@@ -143,12 +154,6 @@ try {
 <img class="s" src="images/image-008_static.jpg" width="1200" height="750" alt="Image 8" loading="lazy" decoding="async">
 <img class="r" src="images/image-008_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
-</div>
-
-<!-- Parallax banner (reusable: change the text and the background image) -->
-<div class="px" data-parallax>
-<div class="px-bg" style="background-image:url(images/parallax_banner.jpg)"></div>
-<h2 class="px-t">Credits</h2>
 </div>
 
 <!-- Productions -->
@@ -190,9 +195,6 @@ try {
 <li>Global Mechanic</li>
 <li>Awesome, Inc.</li>
 <li>Mercury Filmworks</li>
-<li>Elliott Animation</li>
-<li>Mainframe Entertainment</li>
-<li>East Side Games</li>    
 <li>+ others</li>
 </ul>
 </section>
