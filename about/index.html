@@ -29,12 +29,11 @@ strong,b,.bold{color:#0669e0!important}
 .about>*{margin:0}
 
 /* Descriptive text: full width, justified, hyphenated */
-.about .txt{width:100%;max-width:none;font-size:clamp(13px,1.15vw,17px);line-height:1.7;text-align:justify;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+.about .txt{width:100%;max-width:none;font-size:clamp(13px,1.15vw,17px);line-height:1.7;text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 3 3;overflow-wrap:break-word}
 .about .txt strong{font-weight:900}
 
-/* Button (matches the contact form button) */
-.btn{display:block;width:fit-content;margin:calc(var(--sp) * .5) auto 0;background:#000;color:#fff;text-decoration:none;padding:14px 34px;font-weight:900;font-size:clamp(13px,1.1vw,16px);letter-spacing:.14em;text-transform:uppercase;transition:background .2s}
-.btn:hover,.btn:focus-visible{background:var(--p)}
+/* All section titles are blue (the parallax banner title stays white) */
+.about h2:not(.px-t){color:#0669e0!important}
 
 /* Symbol-separated lists: centered, with a flanked title */
 .ch{display:flex;align-items:center;gap:clamp(14px,2vw,28px);margin-bottom:clamp(14px,1.8vw,24px)}
@@ -43,21 +42,21 @@ strong,b,.bold{color:#0669e0!important}
 .sep{list-style:none;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4em 0;text-align:center;line-height:1.5}
 .sep li{color:#000;transition:color .2s}
 .sep li:not(:last-child)::after{content:"/";margin:0 .7em;color:#0669e0;font-weight:900}
-.sep.lg{font-size:clamp(15px,1.75vw,25px);font-weight:500}
-.sep.md{font-size:clamp(13px,1.3vw,19px)}
+.sep{font-size:clamp(13px,1.15vw,17px)}
 @media(hover:hover){.sep li:hover{color:#0669e0}}
 
 /* Availability panel */
-.cta{background:var(--p);color:#fff;padding:clamp(24px,4vw,56px);display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(20px,4vw,56px);align-items:end}
+.cta{background:#0669e0;color:#fff;padding:clamp(24px,4vw,56px);display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
 .cta .big{font-weight:900;font-size:clamp(18px,2.1vw,30px);line-height:1.25;letter-spacing:.06em;text-transform:uppercase;text-align:left}
-.cta .sub{margin-top:clamp(12px,1.6vw,20px);max-width:none;text-align:justify;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word;line-height:1.7}
-.cta .side{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
-.cta .roles{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.cta .roles li{border:2px solid #fff;padding:7px 14px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase}
-.cta-btn{display:inline-block;background:#fff;color:#000;text-decoration:none;padding:16px 38px;font-weight:900;font-size:clamp(13px,1.1vw,16px);letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s}
+.cta .sub{margin-top:clamp(12px,1.6vw,20px);max-width:none;line-height:1.7;text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 3 3;overflow-wrap:break-word}
+.cta .side{display:flex;flex-direction:column;gap:14px}
+.cta .roles{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:10px}
+.cta .roles li{display:flex;align-items:center;justify-content:center;min-height:52px;padding:10px 12px;text-align:center;border:2px solid #fff;background:rgba(255,255,255,.14);color:#fff;font-weight:900;font-size:clamp(11px,.95vw,14px);line-height:1.2;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s}
+@media(hover:hover){.cta .roles li:hover{background:#fff;color:#0669e0}}
+.cta-btn{display:block;text-align:center;background:#fff;color:#0669e0;text-decoration:none;padding:16px 24px;font-weight:900;font-size:clamp(13px,1.1vw,16px);letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s}
 .cta-btn:hover,.cta-btn:focus-visible{background:#000;color:#fff}
 .cta-btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
-@media(max-width:900px){.cta{grid-template-columns:1fr;align-items:start}}
+@media(max-width:900px){.cta{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="../assets/css/parallax-banner.css">
 
@@ -105,7 +104,10 @@ try {
 </div>
 
 <!-- Biography -->
-<p class="txt"><strong>Vancouver-Based Artist With 20+ Years of Professional Experience</strong> shaping visual content across broadcast animation, graphic design, motion graphics, and digital media. Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines a strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design. Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
+<section aria-labelledby="h-bio">
+<div class="ch"><h2 id="h-bio">Mike Gilbert</h2></div>
+<p class="txt" lang="en"><strong>Vancouver-Based Artist With 20+ Years of Professional Experience</strong> shaping visual content across broadcast animation, graphic design, motion graphics, and digital media. Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines a strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design. Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
+</section>
 
 <!-- Eight-image rollover gallery -->
 <div class="g4 w">
@@ -152,7 +154,7 @@ try {
 <!-- Productions -->
 <section aria-labelledby="h-prod">
 <div class="ch"><h2 id="h-prod">Productions</h2></div>
-<ul class="sep lg">
+<ul class="sep">
 <li>Rick and Morty</li>
 <li>My Little Pony: Friendship Is Magic</li>
 <li>Star Trek: Lower Decks</li>
@@ -180,7 +182,7 @@ try {
 <!-- Studios -->
 <section aria-labelledby="h-stu">
 <div class="ch"><h2 id="h-stu">Studios</h2></div>
-<ul class="sep md">
+<ul class="sep">
 <li>Atomic Cartoons</li>
 <li>Wildbrain</li>
 <li>Bardel Entertainment</li>
@@ -195,7 +197,7 @@ try {
 <!-- Clients -->
 <section aria-labelledby="h-cli">
 <div class="ch"><h2 id="h-cli">Clients</h2></div>
-<ul class="sep md">
+<ul class="sep">
 <li>Netflix</li>
 <li>MTV</li>
 <li>YouTube Originals</li>
@@ -223,8 +225,8 @@ try {
 <!-- Freelance availability -->
 <section class="cta" aria-labelledby="h-avail">
 <div>
-<p class="big" id="h-avail">Currently available for freelance, contract, and full-time opportunities across animation, graphic design, motion graphics, and digital media.</p>
-<p class="sub">Open to joining creative teams, supporting ongoing productions, or taking on individual projects requiring a skilled and adaptable creative professional. Welcoming new collaborations, commissions, and opportunities across the entertainment, broadcast, advertising, and commercial sectors.</p>
+<p class="big" id="h-avail">Currently available for freelance, contract, and full-time opportunities.</p>
+<p class="sub" lang="en">Opportunities span animation, graphic design, motion graphics, and digital media. Open to joining creative teams, supporting ongoing productions, or taking on individual projects requiring a skilled and adaptable creative professional. Welcoming new collaborations, commissions, and opportunities across the entertainment, broadcast, advertising, and commercial sectors.</p>
 </div>
 <div class="side">
 <ul class="roles"><li>Freelance</li><li>Contract</li><li>Full-time</li></ul>
