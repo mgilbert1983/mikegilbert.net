@@ -14,87 +14,67 @@
 <meta property="og:url" content="https://www.mikegilbert.net/about/index.html">
 <meta property="og:image" content="https://www.mikegilbert.net/assets/img/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="../assets/fonts/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fonts/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fonts/Gotham-Ultra.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/style.css?v=5">
+<link rel="stylesheet" href="../assets/css/style.css?v=2">
 
 <style>
 /* Keep the two About banners completely flush */
-.about-banners {
-    display: block;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 0 !important;
-    border: 0 !important;
-}
+.about-banners{display:block;margin:0!important;padding:0!important;line-height:0!important;border:0!important}
+.about-banners img{display:block!important;width:100%!important;height:auto!important;margin:0!important;padding:0!important;border:0!important}
 
-.about-banners img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-}
+/* Global blue styling for bold text */
+strong,b,.bold{color:#0669e0!important}
 
-/* Full-width biography with additional banner clearance */
-.bio {
-    display: block !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 20px 0 0 !important;
-}
+/* Page rhythm: generous, consistent space between sections */
+.about{--sec:clamp(36px,5vw,72px)}
+.about>*+*{margin-top:var(--sec)}
+.about>.intro{margin-top:0}
+.about>.g4{margin-top:clamp(20px,3vw,40px)}
+.about p{text-align:left}
 
-.bio > div {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
+/* ---------- Intro ---------- */
+.intro{padding-top:clamp(20px,3vw,44px)}
+.intro .lead{max-width:30em;font-size:clamp(20px,2.5vw,36px);line-height:1.3;letter-spacing:.03em;font-weight:300;text-align:left}
+.intro .lead strong{font-weight:900}
+.intro .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3.5vw,56px);margin-top:clamp(20px,2.6vw,36px);padding-top:clamp(18px,2.2vw,28px);border-top:1px dashed #000}
+.intro .cols p{max-width:60ch;line-height:1.7}
 
-/* Productions, Studios and Clients rollover */
-.sl {
-    color: #000000;
-}
+/* ---------- Section heads ---------- */
+.sh{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:12px;margin-bottom:clamp(12px,1.6vw,22px);border-bottom:1px dashed #000}
+.sh h2{margin:0}
+.sh .ct{font-size:.9em;letter-spacing:.14em;color:var(--g)}
 
-.sl span {
-    color: #000000;
-    transition: color 0.2s ease;
-}
+/* ---------- Expertise tags ---------- */
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.tags li{padding:8px 14px;border:2px solid #282828;line-height:1.2;letter-spacing:.1em;transition:background .2s,color .2s,border-color .2s}
+.tags li.hl{background:#282828;color:#fff}
+@media(hover:hover){.tags li:hover{background:#0669e0;border-color:#0669e0;color:#fff}}
 
-.sl span:hover {
-    color: #0669e0;
-}
+/* ---------- Credits ---------- */
+.cl{list-style:none;padding:0;columns:3 210px;column-gap:clamp(18px,2.8vw,44px)}
+.cl.c2{columns:2 180px}
+.cl.c1{columns:1}
+.cl li{break-inside:avoid;padding:9px 0;border-bottom:1px solid #dcdcdc;color:#000;transition:color .2s,padding-left .2s,border-color .2s}
+.cl li.more{color:var(--g);border-bottom-color:transparent}
+@media(hover:hover){.cl li:not(.more):hover{color:#0669e0;padding-left:8px;border-bottom-color:#0669e0}}
+.duo{display:grid;grid-template-columns:1fr 2fr;gap:clamp(24px,4vw,64px)}
 
-/* Global blue styling for all bold text, including slash dividers */
-strong,
-b,
-.bold {
-    color: #0669e0 !important;
-}
+/* ---------- Availability ---------- */
+.cta{background:var(--p);color:#fff;padding:clamp(24px,4vw,56px);display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(20px,4vw,56px);align-items:end}
+.cta .big{font-weight:900;font-size:clamp(18px,2.1vw,30px);line-height:1.25;letter-spacing:.06em;text-transform:uppercase;text-align:left}
+.cta .sub{margin-top:clamp(12px,1.6vw,20px);max-width:56ch;line-height:1.7}
+.cta .side{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+.cta .roles{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cta .roles li{border:2px solid #fff;padding:7px 14px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase}
+.cta .btn{display:inline-block;background:#fff;color:#000;text-decoration:none;padding:16px 38px;font-weight:900;font-size:clamp(13px,1.1vw,16px);letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s}
+.cta .btn:hover,.cta .btn:focus-visible{background:#000;color:#fff}
+.cta .btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
 
-/* Section headings: 25% smaller than the site default */
-h2.name-heading {
-    color: #0669e0;
-    display: flex;
-    align-items: center;
-    text-align: left;
-    width: 100%;
-    gap: 12px;
-}
-
-h2.name-heading::after {
-    content: "";
-    flex: 1;
-    height: 3px;
-    background-color: #0669e0;
-}
-/* Touchscreen-friendly default behaviour */
-@media (hover: none) {
-    .sl span:hover {
-        color: #000000;
-    }
+/* ---------- Responsive ---------- */
+@media(max-width:900px){.cta{grid-template-columns:1fr;align-items:start}}
+@media(max-width:760px){
+  .intro .cols,.duo{grid-template-columns:1fr}
+  .cl,.cl.c2{columns:1}
+  .sh{flex-direction:column;gap:2px}
 }
 </style>
 
@@ -106,7 +86,7 @@ try {
     }
 } catch(e) {}
 </script>
-<script src="../assets/js/main.js?v=5" defer></script>
+<script src="../assets/js/main.js?v=2" defer></script>
 </head>
 
 <body class="">
@@ -132,7 +112,7 @@ try {
 </nav>
 </header>
 
-<main>
+<main class="about">
 
 <!-- About banners -->
 <div class="about-banners">
@@ -140,49 +120,14 @@ try {
 <img src="images/banner_2_static.jpg" width="2000" height="600" alt="About Banner 2" loading="eager" decoding="async">
 </div>
 
-<h2 class="name-heading">Mike Gilbert</h2>
-<!-- Full-width biography -->
-<div class="bio">
-<div>
-<p><b>Vancouver-Based Artist With 20+ Years of Professional Experience</b> shaping visual content across broadcast animation, graphic design, motion graphics, and digital media. Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines a strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design. Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
+<!-- Biography -->
+<section class="intro" aria-label="Biography">
+<p class="lead"><strong>Vancouver-Based Artist With 20+ Years of Professional Experience</strong> shaping visual content across broadcast animation, graphic design, motion graphics, and digital media.</p>
+<div class="cols">
+<p>Extensive expertise in visual development, 2D animation layout, illustration, art direction, typography, compositing, and high-end visual production. Combines a strong artistic sensibility with technical precision to develop compelling visuals, lead creative teams, oversee production workflows, and deliver exceptional work across television, entertainment, advertising, and commercial design.</p>
+<p>Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
 </div>
-</div>
-
-    <h2 class="name-heading">Digital tools</h2>
-
-<p class="sl">
- <b>✔</b><span>Adobe Photoshop</span>
- <b>✔</b><span>Adobe Animate</span>
- <b>✔</b><span>Adobe Illustrator</span>
- <b>✔</b><span>Adobe After Effects</span>
- <b>✔</b><span>Adobe Premiere Pro</span>
- <b>✔</b><span>Adobe InDesign</span>
- <b>✔</b><span>Adobe Acrobat</span>
- <b>✔</b><span>Adobe Audition</span>
- <b>✔</b><span>Adobe XD</span>
- <b>✔</b><span>Toon Boom Harmony</span>
- <b>✔</b><span>Blender</span>
- <b>✔</b><span>Figma</span>
- <b>✔</b><span>Canva</span>
- <b>✔</b><span>Microsoft Excel</span>
- <b>✔</b><span>Microsoft PowerPoint</span>
- <b>✔</b><span>Microsoft Word</span>
-</p>
-
-<p class="sl">
-<b>✔</b><span>GitHub</span>
- <b>✔</b><span>HTML</span>
- <b>✔</b><span>CSS</span>
- <b>✔</b><span>JavaScript</span>
-</p>
-
-<p class="sl">
-<b>✔</b><span>Claude</span>
- <b>✔</b><span>ChatGpt</span>
- <b>✔</b><span>Google Gemini</span>
- <b>✔</b><span>Higgsfield AI</span>
- <b>✔</b><span>HeyGen</span>
-</p>
+</section>
 
 <!-- Eight-image rollover gallery -->
 <div class="g4 w">
@@ -226,85 +171,113 @@ try {
 <img class="s" src="images/image-008_static.jpg" width="1200" height="750" alt="Image 8" loading="lazy" decoding="async">
 <img class="r" src="images/image-008_rollover.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async">
 </div>
+
 </div>
 
+<!-- Expertise -->
+<section aria-labelledby="h-exp">
+<div class="sh"><h2 id="h-exp">Expertise</h2></div>
+<ul class="tags">
+<li>Visual Development</li>
+<li>2D Animation Layout</li>
+<li>Illustration</li>
+<li>Art Direction</li>
+<li>Typography</li>
+<li>Compositing</li>
+<li>Motion Graphics</li>
+<li>Graphic Design</li>
+<li>Video Production</li>
+<li>Print</li>
+<li>Image Editing</li>
+<li>Production-Ready Artwork</li>
+<li>Adobe Creative Cloud</li>
+<li>AI-Assisted Workflows</li>
+</ul>
+</section>
 
+<!-- Credits -->
+<section aria-labelledby="h-prod">
+<div class="sh"><h2 id="h-prod">Productions</h2><span class="ct">21 titles</span></div>
+<ul class="cl">
+<li>Rick and Morty</li>
+<li>My Little Pony: Friendship Is Magic</li>
+<li>Star Trek: Lower Decks</li>
+<li>Ren &amp; Stimpy</li>
+<li>Curious George</li>
+<li>Cleopatra in Space</li>
+<li>Carol &amp; the End of the World</li>
+<li>Polly Pocket</li>
+<li>Trailer Park Boys: Greasy Money</li>
+<li>It’s Always Sunny: The Gang Goes Mobile</li>
+<li>Archibald’s Next Big Thing</li>
+<li>Yin Yang Yo!</li>
+<li>George of the Jungle</li>
+<li>Ricky Sprockets: Showbiz Boy</li>
+<li>Class of the Titans</li>
+<li>Happy Tree Friends</li>
+<li>Birdgirl</li>
+<li>Jam Van</li>
+<li>The New Ruff Ruffman Show!</li>
+<li>Plum Landing</li>
+<li>Ella the Elephant</li>
+</ul>
+</section>
 
-<h2 class="name-heading">Productions</h2>
+<div class="duo">
+<section aria-labelledby="h-stu">
+<div class="sh"><h2 id="h-stu">Studios</h2></div>
+<ul class="cl c1">
+<li>Atomic Cartoons</li>
+<li>Wildbrain</li>
+<li>Bardel Entertainment</li>
+<li>Titmouse Animation</li>
+<li>Global Mechanic</li>
+<li>Awesome, Inc.</li>
+<li>Mercury Filmworks</li>
+<li class="more">+ others</li>
+</ul>
+</section>
 
-<p class="sl">
-<span>Rick and Morty</span> <b>/</b>
-<span>My Little Pony: Friendship Is Magic</span> <b>/</b>
-<span>Star Trek: Lower Decks</span> <b>/</b>
-<span>Ren &amp; Stimpy</span> <b>/</b>
-<span>Curious George</span> <b>/</b>
-<span>Cleopatra in Space</span> <b>/</b>
-<span>Carol &amp; the End of the World</span> <b>/</b>
-<span>Polly Pocket</span> <b>/</b>
-<span>Trailer Park Boys: Greasy Money</span> <b>/</b>
-<span>It’s Always Sunny: The Gang Goes Mobile</span> <b>/</b>
-<span>Archibald’s Next Big Thing</span> <b>/</b>
-<span>Yin Yang Yo!</span> <b>/</b>
-<span>George of the Jungle</span> <b>/</b>
-<span>Ricky Sprockets: Showbiz Boy</span> <b>/</b>
-<span>Class of the Titans</span> <b>/</b>
-<span>Happy Tree Friends</span> <b>/</b>
-<span>Birdgirl</span> <b>/</b>
-<span>Jam Van</span> <b>/</b>
-<span>The New Ruff Ruffman Show!</span> <b>/</b>
-<span>Plum Landing</span> <b>/</b>
-<span>Ella the Elephant</span>
-</p>
+<section aria-labelledby="h-cli">
+<div class="sh"><h2 id="h-cli">Clients</h2><span class="ct">16</span></div>
+<ul class="cl c2">
+<li>Netflix</li>
+<li>MTV</li>
+<li>YouTube Originals</li>
+<li>Hasbro</li>
+<li>Adult Swim</li>
+<li>Crave</li>
+<li>FX</li>
+<li>Dreamworks Animation</li>
+<li>Nestlé</li>
+<li>Unilever</li>
+<li>CBS</li>
+<li>YTV</li>
+<li>Mattel</li>
+<li>PBS/WGBH</li>
+<li>Jetix</li>
+<li>Bullwinkle</li>
+</ul>
+</section>
+</div>
 
-
-
-<h2 class="name-heading">Studios</h2>
-
-<p class="sl">
-<span>Atomic Cartoons</span> <b>/</b>
-<span>Wildbrain</span> <b>/</b>
-<span>Bardel Entertainment</span> <b>/</b>
-<span>Titmouse Animation</span> <b>/</b>
-<span>Global Mechanic</span> <b>/</b>
-<span>Awesome, Inc.</span> <b>/</b>
-<span>Mercury Filmworks</span> <b>/</b>
-<span>Elliott Animation</span> <b>/</b>
-<span>Fatkat Animation</span> <b>/</b>
-<span>+ others</span>
-</p>
-
-
-
-<h2 class="name-heading">Clients</h2>
-
-<p class="sl">
-<span>Netflix</span> <b>/</b>
-<span>MTV</span> <b>/</b>
-<span>YouTube Originals</span> <b>/</b>
-<span>Hasbro</span> <b>/</b>
-<span>Adult Swim</span> <b>/</b>
-<span>Crave</span> <b>/</b>
-<span>FX</span> <b>/</b>
-<span>Dreamworks Animation</span> <b>/</b>
-<span>Nestlé</span> <b>/</b>
-<span>Unilever</span> <b>/</b>
-<span>CBS</span> <b>/</b>
-<span>YTV</span> <b>/</b>
-<span>Mattel</span> <b>/</b>
-<span>PBS/WGBH</span> <b>/</b>
-<span>Jetix</span> <b>/</b>
-<span>Bullwinkle</span>
-</p>
-
-
-
-<!-- Freelance availability -->
-<p><b>Currently available for freelance, contract, and full-time opportunities across animation, graphic design, motion graphics, and digital media.</b> Open to joining creative teams, supporting ongoing productions, or taking on individual projects requiring a skilled and adaptable creative professional. Welcoming new collaborations, commissions, and opportunities across the entertainment, broadcast, advertising, and commercial sectors.</p>
-
+<!-- Feature banner -->
 <div class="ro a33">
 <img class="s" src="images/image-009_static.jpg" width="2000" height="600" alt="Image 9" loading="lazy" decoding="async">
 <img class="r" src="images/image-009_rollover.jpg" width="2000" height="600" alt="" loading="lazy" decoding="async">
 </div>
+
+<!-- Freelance availability -->
+<section class="cta" aria-labelledby="h-avail">
+<div>
+<p class="big" id="h-avail">Currently available for freelance, contract, and full-time opportunities across animation, graphic design, motion graphics, and digital media.</p>
+<p class="sub">Open to joining creative teams, supporting ongoing productions, or taking on individual projects requiring a skilled and adaptable creative professional. Welcoming new collaborations, commissions, and opportunities across the entertainment, broadcast, advertising, and commercial sectors.</p>
+</div>
+<div class="side">
+<ul class="roles"><li>Freelance</li><li>Contract</li><li>Full-time</li></ul>
+<a class="btn" href="../contact/index.html">Get in touch</a>
+</div>
+</section>
 
 <footer>
 <hr>
