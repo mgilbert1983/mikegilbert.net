@@ -37,8 +37,8 @@ strong,b,.bold{color:#0669e0!important}
 
 /* Symbol-separated lists: centered, with a flanked title */
 .ch{display:flex;align-items:center;gap:clamp(14px,2vw,28px);margin-bottom:clamp(14px,1.8vw,24px)}
-.ch::before,.ch::after{content:"";flex:1;border-top:1px dashed #000}
-.ch h2{margin:0;color:#0669e0;text-align:center;white-space:nowrap}
+.ch::after{content:"";flex:1;height:3px;background:#0669e0}
+.ch h2{margin:0;color:#0669e0;text-align:left;white-space:nowrap}
 .sep{list-style:none;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4em 0;text-align:center;line-height:1.5}
 .sep li{color:#000;transition:color .2s}
 .sep li:not(:last-child)::after{content:"/";margin:0 .7em;color:#0669e0;font-weight:900}
