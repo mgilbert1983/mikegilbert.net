@@ -52,7 +52,7 @@ main>*+*{margin-top:var(--gg)}.r3,.r2,.split{gap:var(--gg)}
 .pn svg{flex:none;width:20px;height:20px;color:var(--p);transition:color .2s,transform .25s}
 .pn a:hover svg,.pn a:focus-visible svg{color:var(--h)}
 .pn .p svg{transform:scaleX(-1)}.pn .p:hover svg{transform:scaleX(-1) translateX(4px)}.pn .n:hover svg{transform:translateX(4px)}
-nav a[href$="about/index.html"]{color:#0669e0}
+nav a.on{color:#0669e0}
 
 
 /* DIVIDER: light grey en dashes. Use a plain <hr> anywhere, in any page.
