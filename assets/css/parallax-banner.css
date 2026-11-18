@@ -5,6 +5,7 @@
      <div class="px-bg" style="background-image:url(images/your-image.jpg)"></div>
      <h2 class="px-t">Your Text Here</h2>
    </div>
+   Modifiers (add to class): px-half = half height, px-left = left-aligned text.
    Options (set on the .px element via style=""):
      --px-extra : parallax travel, % of banner height (default 50%)
      --px-shade : darkening overlay 0 to 1 (default .25)
@@ -14,4 +15,8 @@
 .px::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,var(--px-shade));z-index:-1;pointer-events:none}
 .px .px-t{position:relative;margin:0;padding:0 5%;max-width:100%;color:#fff;font-weight:900;font-size:clamp(22px,4.2vw,64px);line-height:1.15;letter-spacing:.12em;text-transform:uppercase;text-align:center;text-wrap:balance;text-shadow:0 2px 18px rgba(0,0,0,.35);-webkit-user-select:text;user-select:text;cursor:text}
 .px .px-t::selection{background:#0669e0;color:#fff}
+/* Modifiers: add to the .px element */
+.px-half{aspect-ratio:20/3;min-height:84px}              /* half height (2000x300) */
+.px-left{place-items:center start}
+.px-left .px-t{text-align:left;padding:0 5% 0 clamp(20px,4vw,56px)} /* left aligned with edge buffer */
 @media(prefers-reduced-motion:reduce){.px-bg{will-change:auto;transform:none!important}}
