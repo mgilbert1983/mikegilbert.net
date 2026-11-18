@@ -1,0 +1,17 @@
+/* ==========================================================
+   Parallax Banner  (reusable, 2000x600 / 10:3)
+   Usage:
+   <div class="px" data-parallax>
+     <div class="px-bg" style="background-image:url(images/your-image.jpg)"></div>
+     <h2 class="px-t">Your Text Here</h2>
+   </div>
+   Options (set on the .px element via style=""):
+     --px-extra : parallax travel, % of banner height (default 50%)
+     --px-shade : darkening overlay 0 to 1 (default .25)
+   ========================================================== */
+.px{--px-extra:50%;--px-shade:.25;position:relative;display:grid;place-items:center;width:100%;aspect-ratio:10/3;min-height:120px;overflow:hidden;background:#282828;isolation:isolate}
+.px-bg{position:absolute;left:0;right:0;top:calc(var(--px-extra) / -2);height:calc(100% + var(--px-extra));background-position:center;background-size:cover;background-repeat:no-repeat;will-change:transform;z-index:-2}
+.px::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,var(--px-shade));z-index:-1;pointer-events:none}
+.px .px-t{position:relative;margin:0;padding:0 5%;max-width:100%;color:#fff;font-weight:900;font-size:clamp(22px,4.2vw,64px);line-height:1.15;letter-spacing:.12em;text-transform:uppercase;text-align:center;text-wrap:balance;text-shadow:0 2px 18px rgba(0,0,0,.35);-webkit-user-select:text;user-select:text;cursor:text}
+.px .px-t::selection{background:#0669e0;color:#fff}
+@media(prefers-reduced-motion:reduce){.px-bg{will-change:auto;transform:none!important}}
