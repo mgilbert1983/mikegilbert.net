@@ -23,13 +23,13 @@
     <style>
         /* PROJECT COLUMN WIDTH AND ALIGNMENT */
 
-        /* Consistent justified copy with responsive automatic hyphenation. */
+        /* Consistent justified copy without hyphenation. */
         .wrap > main p {
             text-align: justify;
-            -webkit-hyphens: auto;
-            -ms-hyphens: auto;
-            hyphens: auto;
-            overflow-wrap: break-word;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+            overflow-wrap: normal;
             word-break: normal;
         }
 
@@ -50,10 +50,10 @@
             margin-left: 0;
             margin-right: 0;
             text-align: justify;
-            -webkit-hyphens: auto;
-            -ms-hyphens: auto;
-            hyphens: auto;
-            overflow-wrap: break-word;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+            overflow-wrap: normal;
             word-break: normal;
         }
 
@@ -336,8 +336,6 @@
                 </div>
             </div>
 
-            <h2>Ren &amp; Stimpy</h2>
-
             <div class="rs-intro">
                 <p>
                     My work on the 2024 <b>Ren &amp; Stimpy</b> revival for Paramount+ involved both the Layout and Paint departments. As part of the layout team from January to October 2023, I translated storyboards into production-ready scene setups, establishing character staging, perspective, proportions, camera composition, and environmental continuity.
@@ -404,7 +402,30 @@
                 Its eventual release remains uncertain, but there is still the possibility that the series will reach audiences through an alternative platform or future distribution arrangement.
             </p>
 
-            <img src="images/image-019.jpg" width="2000" height="600" alt="Ren &amp; Stimpy image 19" data-lb tabindex="0" loading="lazy" decoding="async">
+            <!-- SECOND STATIC BANNER (2000 x 200) AND PARALLAX BANNER -->
+            <div class="rs-banners rs-banners-secondary">
+                <img
+                    src="images/banner-002.jpg"
+                    width="2000"
+                    height="200"
+                    alt="Ren &amp; Stimpy secondary banner"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="rs-parallax" id="rs-parallax-2">
+                    <div class="rs-parallax-layer" data-speed="0.12">
+                        <img
+                            src="../../parallax-banners/artwork/ren-and-stimpy/PARALLAX_BANNER_R%26S_002.png"
+                            width="2000"
+                            height="600"
+                            alt="Ren and Stimpy secondary parallax artwork"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                </div>
+            </div>
 
             <div class="co">
                 <img src="images/company-logo-001.png" width="400" height="160" alt="Company 1" loading="lazy">
@@ -435,37 +456,44 @@
         </main>
     </div>
 
-    <!-- SINGLE-IMAGE PARALLAX SCROLL SCRIPT -->
+    <!-- MULTI-IMAGE PARALLAX SCROLL SCRIPT -->
     <script>
         (function () {
-            var box = document.getElementById('rs-parallax');
+            var boxes = document.querySelectorAll('.rs-parallax');
 
-            if (!box) return;
+            if (!boxes.length) return;
 
-            var layer = box.querySelector('.rs-parallax-layer');
             var ticking = false;
 
             function update() {
                 ticking = false;
 
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                    layer.style.transform = 'none';
+                    boxes.forEach(function (box) {
+                        var layer = box.querySelector('.rs-parallax-layer');
+                        if (layer) layer.style.transform = 'none';
+                    });
                     return;
                 }
 
-                var rect = box.getBoundingClientRect();
                 var vh = window.innerHeight || document.documentElement.clientHeight;
 
-                if (rect.bottom < 0 || rect.top > vh) return;
+                boxes.forEach(function (box) {
+                    var layer = box.querySelector('.rs-parallax-layer');
+                    if (!layer) return;
 
-                var progress = (vh / 2 - (rect.top + rect.height / 2)) /
-                    (vh / 2 + rect.height / 2);
+                    var rect = box.getBoundingClientRect();
+                    if (rect.bottom < 0 || rect.top > vh) return;
 
-                var speed = parseFloat(layer.getAttribute('data-speed')) || 0.12;
-                var movement = progress * speed * rect.height;
+                    var progress = (vh / 2 - (rect.top + rect.height / 2)) /
+                        (vh / 2 + rect.height / 2);
 
-                layer.style.transform =
-                    'translate3d(0,' + movement.toFixed(1) + 'px,0)';
+                    var speed = parseFloat(layer.getAttribute('data-speed')) || 0.12;
+                    var movement = progress * speed * rect.height;
+
+                    layer.style.transform =
+                        'translate3d(0,' + movement.toFixed(1) + 'px,0)';
+                });
             }
 
             function onScroll() {
