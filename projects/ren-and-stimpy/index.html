@@ -11,17 +11,121 @@
     <link rel="icon" href="../../assets/img/favicon.png">
 
     <meta name="description" content="Ren &amp; Stimpy by Mike Gilbert. Art direction and production design.">
-
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mike Gilbert">
     <meta property="og:title" content="Ren &amp; Stimpy">
     <meta property="og:description" content="Ren &amp; Stimpy by Mike Gilbert. Art direction and production design.">
     <meta property="og:url" content="https://www.mikegilbert.net/projects/ren-and-stimpy/index.html">
     <meta property="og:image" content="https://www.mikegilbert.net/projects/ren-and-stimpy/images/share.jpg">
-
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <style>
+        /* HOME BUTTON ROLLOVER */
+        header .home {
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
+
+        header .home img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity .3s ease;
+        }
+
+        header .home .hb-a {
+            position: relative;
+            z-index: 1;
+        }
+
+        header .home .hb-b {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        @media (hover:hover) {
+            header .home:hover .hb-a {
+                opacity: 0;
+            }
+
+            header .home:hover .hb-b {
+                opacity: 1;
+            }
+        }
+
+        header .home:focus-visible {
+            outline: 3px solid #235ff4;
+            outline-offset: 4px;
+        }
+
+        /* STATIC + PARALLAX BANNERS */
+        .rs-banners {
+            width: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+            overflow: hidden;
+        }
+
+        .rs-banners img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .rs-parallax {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 10 / 3;
+            overflow: hidden;
+            background: #0786d4;
+            margin: 0;
+        }
+
+        .rs-parallax-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            will-change: transform;
+            transform: translate3d(0,0,0);
+        }
+
+        .rs-parallax-layer img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: auto;
+            max-width: none;
+            transform: translate(-50%,-50%) scale(1.08);
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            header .home img {
+                transition: none;
+            }
+
+            .rs-parallax-layer {
+                transform: none !important;
+            }
+
+            .rs-parallax-layer img {
+                transform: translate(-50%,-50%);
+            }
+        }
+    </style>
 
     <script>
         try {
@@ -40,7 +144,23 @@
 
         <header>
             <a class="home" href="../../home/index.html" aria-label="Home">
-                <img src="../../assets/img/logo.png" width="600" height="283" alt="Mike Gilbert">
+                <img
+                    class="hb-a"
+                    src="../../about/images/HOME_BUTTON_001.jpg"
+                    width="600"
+                    height="600"
+                    alt="Mike Gilbert"
+                    decoding="async"
+                >
+                <img
+                    class="hb-b"
+                    src="../../about/images/HOME_BUTTON_002.jpg"
+                    width="600"
+                    height="600"
+                    alt=""
+                    aria-hidden="true"
+                    decoding="async"
+                >
             </a>
 
             <button class="mt" aria-expanded="false" aria-controls="nav" aria-label="Menu">
@@ -61,16 +181,41 @@
 
         <main>
 
-            <img class="ban" src="images/banner.jpg" width="2000" height="600" alt="Ren &amp; Stimpy banner" decoding="async" fetchpriority="high">
+            <!-- STATIC BANNER + PARALLAX BANNER -->
+            <div class="rs-banners">
+
+                <img
+                    src="images/banner.jpg"
+                    width="2000"
+                    height="600"
+                    alt="Ren &amp; Stimpy banner"
+                    decoding="async"
+                    fetchpriority="high"
+                >
+
+                <div class="rs-parallax" id="rs-parallax">
+                    <div class="rs-parallax-layer" data-speed="0.12">
+                        <img
+                            src="../../parallax-banners/artwork/ren-and-stimpy/PARALLAX_BANNER_R%26S.png"
+                            width="2000"
+                            height="600"
+                            alt="Ren and Stimpy parallax artwork"
+                            decoding="async"
+                        >
+                    </div>
+                </div>
+
+            </div>
 
             <h2>Ren &amp; Stimpy</h2>
 
             <div class="split">
                 <img src="images/logo.png" width="800" height="500" alt="Ren &amp; Stimpy logo">
 
-                <!-- CASE STUDY TEXT: replace the lorem ipsum paragraph below -->
                 <p>
-                    My work on the 2024 <b>Ren &amp; Stimpy</b> revival for Paramount+ involved both the Layout and Paint departments. As part of the layout team from January to October 2023, I translated storyboards into production-ready scene setups, establishing character staging, perspective, proportions, camera composition, and environmental continuity. This included preparing backgrounds and foreground elements, refining character placement and posing, and ensuring scenes were technically and visually ready for animation. I subsequently transitioned into the Paint department, working under Mark Whiting to contribute to the show's distinctive colour styling and finished artwork. The production required careful attention to the original series' exaggerated visual language, maintaining the expressive character designs, unconventional proportions, and strong graphic sensibility that define the property.
+                    My work on the 2024 <b>Ren &amp; Stimpy</b> revival for Paramount+ involved both the Layout and Paint departments. As part of the layout team from January to October 2023, I translated storyboards into production-ready scene setups, establishing character staging, perspective, proportions, camera composition, and environmental continuity.
+                    This included preparing backgrounds and foreground elements, refining character placement and posing, and ensuring scenes were technically and visually ready for animation. I subsequently transitioned into the Paint department, working under Mark Whiting to contribute to the show's distinctive colour styling and finished artwork.
+                    The production required careful attention to the original series' exaggerated visual language, maintaining the expressive character designs, unconventional proportions, and strong graphic sensibility that define the property.
                 </p>
             </div>
 
@@ -92,7 +237,6 @@
                 <img src="images/image-008.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 8" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
 
-            <!-- CASE STUDY TEXT: replace the lorem ipsum paragraph below -->
             <p>
                 Contributed to the visual development of Ren &amp; Stimpy through the creation of detailed black-and-white scene layouts, translating storyboards into fully constructed environments and animation-ready compositions. This involved refining character staging, perspective, camera angles, and environmental details while ensuring strong visual continuity, accurate proportions, and the exaggerated drawing style that defines the series.
             </p>
@@ -102,9 +246,9 @@
             <h2>Case Study</h2>
 
             <div class="split">
-                <!-- CASE STUDY TEXT: replace the lorem ipsum paragraph below -->
                 <p>
-                    Specialized in the background paint process, developing and finishing detailed colour artwork for animated environments, translating established layouts and visual direction into polished production backgrounds. This involved applying colour, shading, lighting, and atmospheric treatments while maintaining consistency across locations, scenes, and sequences. Worked with established colour palettes and stylistic references to ensure backgrounds complemented character designs, supported visual storytelling, and maintained the overall aesthetic of the production. Particular attention was given to colour harmony, depth, perspective, and environmental detail, ensuring each background integrated seamlessly into the finished animation.
+                    Specialized in the background paint process, developing and finishing detailed colour artwork for animated environments, translating established layouts and visual direction into polished production backgrounds. This involved applying colour, shading, lighting, and atmospheric treatments while maintaining consistency across locations, scenes, and sequences.
+                    Worked with established colour palettes and stylistic references to ensure backgrounds complemented character designs, supported visual storytelling, and maintained the overall aesthetic of the production. Particular attention was given to colour harmony, depth, perspective, and environmental detail, ensuring each background integrated seamlessly into the finished animation.
                 </p>
 
                 <img src="images/image-010.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 10" data-lb tabindex="0" loading="lazy" decoding="async">
@@ -128,9 +272,9 @@
                 <img src="images/image-018.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 18" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
 
-            <!-- CASE STUDY TEXT: replace the lorem ipsum paragraph below -->
             <p>
-                Despite substantial production work being completed, the series was ultimately shelved before reaching its intended release on Paramount+. While its distribution plans were put on hold, the project remains a completed body of production work with the potential to find a new distribution opportunity in the near future. Its eventual release remains uncertain, but there is still the possibility that the series will reach audiences through an alternative platform or future distribution arrangement.
+                Despite substantial production work being completed, the series was ultimately shelved before reaching its intended release on Paramount+. While its distribution plans were put on hold, the project remains a completed body of production work with the potential to find a new distribution opportunity in the near future.
+                Its eventual release remains uncertain, but there is still the possibility that the series will reach audiences through an alternative platform or future distribution arrangement.
             </p>
 
             <img src="images/image-019.jpg" width="2000" height="600" alt="Ren &amp; Stimpy image 19" data-lb tabindex="0" loading="lazy" decoding="async">
@@ -163,5 +307,54 @@
 
         </main>
     </div>
+
+    <!-- SINGLE-IMAGE PARALLAX SCROLL SCRIPT -->
+    <script>
+        (function () {
+            var box = document.getElementById('rs-parallax');
+
+            if (!box) return;
+
+            var layer = box.querySelector('.rs-parallax-layer');
+            var ticking = false;
+
+            function update() {
+                ticking = false;
+
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    layer.style.transform = 'none';
+                    return;
+                }
+
+                var rect = box.getBoundingClientRect();
+                var vh = window.innerHeight || document.documentElement.clientHeight;
+
+                if (rect.bottom < 0 || rect.top > vh) return;
+
+                var progress = (vh / 2 - (rect.top + rect.height / 2)) /
+                    (vh / 2 + rect.height / 2);
+
+                var speed = parseFloat(layer.getAttribute('data-speed')) || 0.12;
+                var movement = progress * speed * rect.height;
+
+                layer.style.transform =
+                    'translate3d(0,' + movement.toFixed(1) + 'px,0)';
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    ticking = true;
+                    requestAnimationFrame(update);
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            window.addEventListener('load', update);
+
+            update();
+        })();
+    </script>
+
 </body>
 </html>
