@@ -23,40 +23,6 @@
     <style>
         /* PROJECT COLUMN WIDTH AND ALIGNMENT */
 
-        /* Consistent justified copy without hyphenation. */
-        .wrap > main p {
-            text-align: justify;
-            -webkit-hyphens: none;
-            -ms-hyphens: none;
-            hyphens: none;
-            overflow-wrap: normal;
-            word-break: normal;
-        }
-
-        /* FULL-WIDTH INTRODUCTION BELOW THE BANNERS */
-        .rs-intro {
-            display: block;
-            box-sizing: border-box;
-            width: 100%;
-            max-width: 2000px;
-            min-width: 0;
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        .rs-intro p {
-            width: 100%;
-            max-width: 2000px;
-            margin-left: 0;
-            margin-right: 0;
-            text-align: justify;
-            -webkit-hyphens: none;
-            -ms-hyphens: none;
-            hyphens: none;
-            overflow-wrap: normal;
-            word-break: normal;
-        }
-
         .wrap {
             grid-template-columns: clamp(150px, 21.5vw, 323px) minmax(0, 1fr);
         }
@@ -74,9 +40,37 @@
             max-width: 100%;
         }
 
+        /* TEXT BLOCKS: GENEROUS VERTICAL BREATHING ROOM */
+        .wrap > main p {
+            margin: 0;
+            padding: 38px 0;
+            text-align: justify;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+            overflow-wrap: normal;
+            word-break: normal;
+        }
+
+        .rs-intro {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 2000px;
+            min-width: 0;
+            margin: 0;
+            padding: 38px 0;
+        }
+
+        .rs-intro p {
+            width: 100%;
+            max-width: 2000px;
+            margin: 0;
+            padding: 0;
+        }
+
         .wrap > main > img,
-        .wrap > main > .r2,
-        .wrap > main > .r3,
+        .wrap > main > .rs-gallery,
         .wrap > main > .split,
         .wrap > main > .rs-banners {
             width: 100% !important;
@@ -85,27 +79,74 @@
             margin-right: 0 !important;
         }
 
-        .r2,
-        .r3,
-        .split {
-            min-width: 0;
+        /* GALLERIES: TWO-UP AND FOUR-UP ROWS */
+        .rs-gallery {
+            display: grid;
             width: 100%;
             max-width: 100%;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            min-width: 0;
+        }
+
+        .rs-gallery-2 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .r3 {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+        .rs-gallery-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
-        .r2 img,
-        .r3 img,
-        .split img,
-        .wrap > main > img {
+        .rs-gallery img {
             display: block;
             width: 100%;
             max-width: 100%;
             height: auto;
+            min-width: 0;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            align-items: center;
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .split p {
+            padding: 0;
+        }
+
+        .split img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* GREY DASHED DIVIDER AFTER EACH GALLERY */
+        .rs-divider {
+            display: block;
+            width: 100%;
+            height: 0;
+            margin: 38px 0;
+            padding: 0;
+            border: 0;
+            border-top: 1px dashed #999;
+            background: none;
+        }
+
+        .wrap > main > h2 {
+            margin: 0;
+            padding: 38px 0 12px;
+        }
+
+        .co,
+        .pn {
+            margin-top: 38px;
         }
 
         /* HOME BUTTON ROLLOVER */
@@ -226,12 +267,16 @@
             align-items: stretch;
             width: 100%;
             max-width: 100%;
-            margin: 0;
+            margin: 38px 0;
         }
 
         .rs-final-split .rs-final-copy {
             min-width: 0;
             align-self: center;
+        }
+
+        .rs-final-split .rs-final-copy p {
+            padding: 0;
         }
 
         .rs-final-image-placeholder {
@@ -262,19 +307,7 @@
                 width: 100%;
             }
 
-            .r2,
-            .r3,
-            .split {
-                min-width: 0;
-                max-width: 100%;
-            }
-
-            .r3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .r2,
-            .split {
+            .rs-gallery-4 {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
@@ -284,6 +317,23 @@
 
             .rs-final-image-placeholder {
                 min-height: 220px;
+            }
+        }
+
+        @media (max-width:480px) {
+            .rs-gallery-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .rs-gallery-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .wrap > main p,
+            .rs-intro {
+                padding-top: 28px;
+                padding-bottom: 28px;
             }
         }
 
@@ -385,13 +435,13 @@
                 </p>
             </div>
 
-            <!-- FIRST SECTION BANNER AND DUPLICATED PARALLAX (2000 x 200 / 2000 x 600) -->
+            <!-- FIRST SECTION BANNER AND PARALLAX -->
             <div class="rs-banners rs-banners-first-section">
                 <img
                     src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/assets/img/banner_background_layout.jpg"
                     width="2000"
                     height="200"
-                    alt="Ren &amp; Stimpy section banner"
+                    alt="Ren &amp; Stimpy background layout banner"
                     loading="lazy"
                     decoding="async"
                 >
@@ -402,7 +452,7 @@
                             src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/parallax-banners/artwork/ren-and-stimpy/PARALLAX_BANNER_R%26S_002.png"
                             width="2000"
                             height="600"
-                            alt="Ren and Stimpy section parallax artwork"
+                            alt="Ren and Stimpy background layout parallax artwork"
                             loading="lazy"
                             decoding="async"
                         >
@@ -410,36 +460,37 @@
                 </div>
             </div>
 
-            <img src="images/image-001.jpg" width="1600" height="1000" alt="Ren &amp; Stimpy image 1" data-lb tabindex="0" loading="lazy" decoding="async">
-
-            <div class="r3">
+            <!-- LAYOUT GALLERY: TWO, FOUR, THEN THE REMAINING TWO AVAILABLE IMAGES -->
+            <div class="rs-gallery rs-gallery-2">
+                <img src="images/image-001.jpg" width="1600" height="1000" alt="Ren &amp; Stimpy image 1" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-002.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 2" data-lb tabindex="0" loading="lazy" decoding="async">
-                <img src="images/image-003.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 3" data-lb tabindex="0" loading="lazy" decoding="async">
-                <img src="images/image-004.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 4" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
 
-            <div class="r2">
+            <div class="rs-gallery rs-gallery-4">
+                <img src="images/image-003.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 3" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-004.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 4" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-005.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 5" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-006.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 6" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
 
-            <div class="r2">
+            <div class="rs-gallery rs-gallery-2">
                 <img src="images/image-007.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 7" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-008.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 8" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
+
+            <hr class="rs-divider">
 
             <p>
                 Contributed to the visual development of Ren &amp; Stimpy through the creation of detailed black-and-white scene layouts, translating storyboards into fully constructed environments and animation-ready compositions. This involved refining character staging, perspective, camera angles, and environmental details while ensuring strong visual continuity, accurate proportions, and the exaggerated drawing style that defines the series.
             </p>
 
-
-            <!-- SECOND STATIC BANNER (2000 x 200) AND PARALLAX BANNER -->
+            <!-- SECOND SECTION: BACKGROUND PAINT BANNER AND PARALLAX -->
             <div class="rs-banners rs-banners-secondary">
                 <img
                     src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/assets/img/banner_background_paint.jpg"
                     width="2000"
                     height="200"
-                    alt="Ren &amp; Stimpy secondary banner"
+                    alt="Ren &amp; Stimpy background paint banner"
                     loading="lazy"
                     decoding="async"
                 >
@@ -458,65 +509,39 @@
                 </div>
             </div>
 
-
-            <img src="images/image-009.jpg" width="2000" height="600" alt="Ren &amp; Stimpy image 9" data-lb tabindex="0" loading="lazy" decoding="async">
-
             <h2>Case Study</h2>
 
-            <div class="split">
-                <p>
-                    Specialized in the background paint process, developing and finishing detailed colour artwork for animated environments, translating established layouts and visual direction into polished production backgrounds. This involved applying colour, shading, lighting, and atmospheric treatments while maintaining consistency across locations, scenes, and sequences.
-                    Worked with established colour palettes and stylistic references to ensure backgrounds complemented character designs, supported visual storytelling, and maintained the overall aesthetic of the production. Particular attention was given to colour harmony, depth, perspective, and environmental detail, ensuring each background integrated seamlessly into the finished animation.
-                </p>
+            <p>
+                Specialized in the background paint process, developing and finishing detailed colour artwork for animated environments, translating established layouts and visual direction into polished production backgrounds. This involved applying colour, shading, lighting, and atmospheric treatments while maintaining consistency across locations, scenes, and sequences.
+                Worked with established colour palettes and stylistic references to ensure backgrounds complemented character designs, supported visual storytelling, and maintained the overall aesthetic of the production. Particular attention was given to colour harmony, depth, perspective, and environmental detail, ensuring each background integrated seamlessly into the finished animation.
+            </p>
 
+            <!-- BACKGROUND PAINT GALLERY: TWO, FOUR, FOUR -->
+            <div class="rs-gallery rs-gallery-2">
+                <img src="images/image-009.jpg" width="2000" height="600" alt="Ren &amp; Stimpy image 9" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-010.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 10" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
 
-            <img src="images/image-011.jpg" width="1600" height="1000" alt="Ren &amp; Stimpy image 11" data-lb tabindex="0" loading="lazy" decoding="async">
-
-            <div class="r3">
+            <div class="rs-gallery rs-gallery-4">
+                <img src="images/image-011.jpg" width="1600" height="1000" alt="Ren &amp; Stimpy image 11" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-012.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 12" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-013.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 13" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-014.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 14" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
 
-            <div class="r2">
+            <div class="rs-gallery rs-gallery-4">
                 <img src="images/image-015.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 15" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-016.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 16" data-lb tabindex="0" loading="lazy" decoding="async">
-            </div>
-
-            <div class="r2">
                 <img src="images/image-017.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 17" data-lb tabindex="0" loading="lazy" decoding="async">
                 <img src="images/image-018.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 18" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
+
+            <hr class="rs-divider">
 
             <p>
                 Despite substantial production work being completed, the series was ultimately shelved before reaching its intended release on Paramount+. While its distribution plans were put on hold, the project remains a completed body of production work with the potential to find a new distribution opportunity in the near future.
                 Its eventual release remains uncertain, but there is still the possibility that the series will reach audiences through an alternative platform or future distribution arrangement.
             </p>
-
-
-
-            <div class="co">
-                <img src="images/company-logo-001.png" width="400" height="160" alt="Company 1" loading="lazy">
-                <img src="images/company-logo-002.png" width="400" height="160" alt="Company 2" loading="lazy">
-            </div>
-
-            <div class="pn">
-                <a class="p" href="../rushden-and-diamonds-2020/index.html" rel="prev" aria-label="Previous project: Rushden &amp; Diamonds - 2020">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M3 12h17M14 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
-                    </svg>
-                    <span>Rushden &amp; Diamonds - 2020</span>
-                </a>
-
-                <a class="n" href="../michael-rushden-fiero/index.html" rel="next" aria-label="Next project: Michael Rushden - Fiero">
-                    <span>Michael Rushden - Fiero</span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M3 12h17M14 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
-                    </svg>
-                </a>
-            </div>
 
             <!-- FINAL CREDITS BANNER AND PARALLAX -->
             <div class="rs-banners rs-banners-credits">
@@ -554,6 +579,27 @@
                 <div class="rs-final-image-placeholder" role="img" aria-label="Image placeholder for a final Ren and Stimpy project image">
                     Image placeholder
                 </div>
+            </div>
+
+            <div class="co">
+                <img src="images/company-logo-001.png" width="400" height="160" alt="Company 1" loading="lazy">
+                <img src="images/company-logo-002.png" width="400" height="160" alt="Company 2" loading="lazy">
+            </div>
+
+            <div class="pn">
+                <a class="p" href="../rushden-and-diamonds-2020/index.html" rel="prev" aria-label="Previous project: Rushden &amp; Diamonds - 2020">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 12h17M14 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
+                    </svg>
+                    <span>Rushden &amp; Diamonds - 2020</span>
+                </a>
+
+                <a class="n" href="../michael-rushden-fiero/index.html" rel="next" aria-label="Next project: Michael Rushden - Fiero">
+                    <span>Michael Rushden - Fiero</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 12h17M14 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
+                    </svg>
+                </a>
             </div>
 
             <footer>
