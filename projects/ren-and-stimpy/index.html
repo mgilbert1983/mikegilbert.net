@@ -23,6 +23,40 @@
     <style>
         /* PROJECT COLUMN WIDTH AND ALIGNMENT */
 
+        /* Consistent justified copy with responsive automatic hyphenation. */
+        .wrap > main p {
+            text-align: justify;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            word-break: normal;
+        }
+
+        /* FULL-WIDTH INTRODUCTION BELOW THE BANNERS */
+        .rs-intro {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 2000px;
+            min-width: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .rs-intro p {
+            width: 100%;
+            max-width: 2000px;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: justify;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            word-break: normal;
+        }
+
         .wrap {
             grid-template-columns: clamp(150px, 21.5vw, 323px) minmax(0, 1fr);
         }
@@ -304,9 +338,7 @@
 
             <h2>Ren &amp; Stimpy</h2>
 
-            <div class="split">
-                <img src="images/logo.png" width="800" height="500" alt="Ren &amp; Stimpy logo">
-
+            <div class="rs-intro">
                 <p>
                     My work on the 2024 <b>Ren &amp; Stimpy</b> revival for Paramount+ involved both the Layout and Paint departments. As part of the layout team from January to October 2023, I translated storyboards into production-ready scene setups, establishing character staging, perspective, proportions, camera composition, and environmental continuity.
                     This included preparing backgrounds and foreground elements, refining character placement and posing, and ensuring scenes were technically and visually ready for animation. I subsequently transitioned into the Paint department, working under Mark Whiting to contribute to the show's distinctive colour styling and finished artwork.
