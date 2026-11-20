@@ -86,9 +86,22 @@
             max-width: 100%;
             column-gap: 12px;
             row-gap: 12px;
-            margin: 0 0 12px;
+            margin: 0;
             padding: 0;
             min-width: 0;
+        }
+
+        /* KEEP THE SAME TIGHT GAP BETWEEN EVERY GALLERY ROW */
+        .rs-gallery + .rs-gallery,
+        .rs-banners + .rs-gallery {
+            margin-top: 12px;
+        }
+
+        /* BRING THE FOLLOWING COPY CLOSER TO THE LAST IMAGE ROW,
+           WHILE PRESERVING ITS EXISTING LOWER BUFFER */
+        .wrap > main p.rs-gallery-caption {
+            margin: 0;
+            padding: 12px 0 38px;
         }
 
         .rs-gallery-2 {
@@ -505,9 +518,8 @@
                 <div class="rs-image-placeholder" role="img" aria-label="Image placeholder for additional layout artwork">Image placeholder</div>
             </div>
 
-            <hr class="rs-divider">
 
-            <p>
+            <p class="rs-gallery-caption">
                 Contributed to the visual development of Ren &amp; Stimpy through the creation of detailed black-and-white scene layouts, translating storyboards into fully constructed environments and animation-ready compositions. This involved refining character staging, perspective, camera angles, and environmental details while ensuring strong visual continuity, accurate proportions, and the exaggerated drawing style that defines the series.
             </p>
 
@@ -563,9 +575,8 @@
                 <img src="images/image-018.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 18" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
 
-            <hr class="rs-divider">
 
-            <p>
+            <p class="rs-gallery-caption">
                 Despite substantial production work being completed, the series was ultimately shelved before reaching its intended release on Paramount+. While its distribution plans were put on hold, the project remains a completed body of production work with the potential to find a new distribution opportunity in the near future.
                 Its eventual release remains uncertain, but there is still the possibility that the series will reach audiences through an alternative platform or future distribution arrangement.
             </p>
