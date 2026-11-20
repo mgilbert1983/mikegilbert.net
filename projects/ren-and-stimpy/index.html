@@ -22,7 +22,68 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
 
     <style>
-        /* HOME BUTTON ROLLOVER */
+        /* =====================================================
+           PROJECT COLUMN WIDTH AND ALIGNMENT
+        ===================================================== */
+
+        /* Allow the main column to shrink within the site grid */
+        .wrap {
+            grid-template-columns: clamp(150px, 21.5vw, 323px) minmax(0, 1fr);
+        }
+
+        .wrap > main {
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .wrap > main > * {
+            box-sizing: border-box;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        /* Keep all artwork aligned with the banner */
+        .wrap > main > img,
+        .wrap > main > .r2,
+        .wrap > main > .r3,
+        .wrap > main > .split,
+        .wrap > main > .rs-banners {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        /* Prevent gallery grids from expanding beyond the column */
+        .r2,
+        .r3,
+        .split {
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .r3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .r2 img,
+        .r3 img,
+        .split img,
+        .wrap > main > img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* =====================================================
+           HOME BUTTON ROLLOVER
+        ===================================================== */
+
         header .home {
             position: relative;
             display: block;
@@ -30,31 +91,31 @@
         }
 
         header .home img {
+            position: absolute;
+            inset: 0;
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             transition: opacity .3s ease;
         }
 
         header .home .hb-a {
-            position: relative;
-            z-index: 1;
+            opacity: 1;
         }
 
         header .home .hb-b {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
             opacity: 0;
         }
 
         @media (hover:hover) {
-            header .home:hover .hb-a {
+            header .home:hover .hb-a,
+            header .home:focus-visible .hb-a {
                 opacity: 0;
             }
 
-            header .home:hover .hb-b {
+            header .home:hover .hb-b,
+            header .home:focus-visible .hb-b {
                 opacity: 1;
             }
         }
@@ -64,19 +125,34 @@
             outline-offset: 4px;
         }
 
-        /* STATIC + PARALLAX BANNERS */
+        /* =====================================================
+           ACTIVE ANIMATION NAVIGATION
+        ===================================================== */
+
+        #nav a.on,
+        #nav a[aria-current="page"] {
+            color: #0669e0 !important;
+            font-weight: 900 !important;
+        }
+
+        /* =====================================================
+           STATIC AND PARALLAX BANNERS
+        ===================================================== */
+
         .rs-banners {
-            width: 100%;
             display: block;
+            width: 100%;
+            max-width: 100%;
             margin: 0;
             padding: 0;
             line-height: 0;
             overflow: hidden;
         }
 
-        .rs-banners img {
+        .rs-banners > img {
             display: block;
             width: 100%;
+            max-width: 100%;
             height: auto;
             margin: 0;
             padding: 0;
@@ -86,10 +162,12 @@
         .rs-parallax {
             position: relative;
             width: 100%;
+            max-width: 100%;
             aspect-ratio: 10 / 3;
             overflow: hidden;
             background: #0786d4;
             margin: 0;
+            padding: 0;
         }
 
         .rs-parallax-layer {
@@ -104,12 +182,44 @@
 
         .rs-parallax-layer img {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            inset: 0;
+            display: block;
             width: 100%;
-            height: auto;
+            height: 100%;
             max-width: none;
-            transform: translate(-50%,-50%) scale(1.08);
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* =====================================================
+           RESPONSIVE AND ACCESSIBILITY
+        ===================================================== */
+
+        @media (max-width:760px) {
+            .wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .wrap > main {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .r2,
+            .r3,
+            .split {
+                min-width: 0;
+                max-width: 100%;
+            }
+
+            .r3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .r2,
+            .split {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
 
         @media (prefers-reduced-motion:reduce) {
@@ -119,10 +229,6 @@
 
             .rs-parallax-layer {
                 transform: none !important;
-            }
-
-            .rs-parallax-layer img {
-                transform: translate(-50%,-50%);
             }
         }
     </style>
@@ -170,7 +276,7 @@
             </button>
 
             <nav id="nav" aria-label="Main">
-                <a href="../../animation/index.html">Animation</a>
+                <a href="../../animation/index.html" class="on" aria-current="page">Animation</a>
                 <a href="../../illustration/index.html">Illustration</a>
                 <a href="../../graphic-design/index.html">Graphic Design</a>
                 <a href="../../motion-graphics/index.html">Motion Graphics</a>
@@ -181,7 +287,7 @@
 
         <main>
 
-            <!-- STATIC BANNER + PARALLAX BANNER -->
+            <!-- STATIC BANNER -->
             <div class="rs-banners">
 
                 <img
@@ -193,6 +299,7 @@
                     fetchpriority="high"
                 >
 
+                <!-- PARALLAX BANNER -->
                 <div class="rs-parallax" id="rs-parallax">
                     <div class="rs-parallax-layer" data-speed="0.12">
                         <img
@@ -207,6 +314,10 @@
 
             </div>
 
+            <h2>Ren &amp; Stimpy</h2>
+
+            <div class="split">
+                <img src="images/logo.png" width="800" height="500" alt="Ren &amp; Stimpy logo">
 
                 <p>
                     My work on the 2024 <b>Ren &amp; Stimpy</b> revival for Paramount+ involved both the Layout and Paint departments. As part of the layout team from January to October 2023, I translated storyboards into production-ready scene setups, establishing character staging, perspective, proportions, camera composition, and environmental continuity.
