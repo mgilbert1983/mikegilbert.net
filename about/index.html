@@ -114,12 +114,54 @@ try {
 <p class="txt" lang="en">Recognized for translating creative concepts into polished, production-ready assets, maintaining artistic consistency across complex projects, and meeting demanding production schedules. Experienced in leveraging emerging AI technologies alongside industry-standard Adobe Creative Cloud tools to expand creative possibilities and streamline production.</p>
 </section>
 
+
+    
 <!-- Parallax banner (reusable: change the text and the background image) -->
 <div class="px px-half px-left" data-parallax>
 <div class="px-bg" style="background-image:url(images/parallax_banner.jpg)"></div>
 <h2 class="px-t">Proficiencies</h2>
 </div>
 
+
+<style>
+.pbx{width:100%;max-width:2000px;margin:0 auto;padding:0;line-height:0;font-size:0}
+.pbx *{box-sizing:border-box}
+.pbx-static{display:block;width:100%;aspect-ratio:2000/600;overflow:hidden}
+.pbx-static img{display:block;width:100%;height:100%;object-fit:cover;border:0}
+.pbx-parallax{position:relative;width:100%;aspect-ratio:2000/600;overflow:hidden;background:#111;view-timeline-name:--pbx;view-timeline-axis:block}
+.pbx-layer{position:absolute;left:0;top:-20%;width:100%;height:140%;display:block}
+.pbx-layer img{display:block;width:100%;height:100%;object-fit:cover;border:0}
+@keyframes pbx-slow{from{transform:translateY(-4.3%)}to{transform:translateY(4.3%)}}
+@keyframes pbx-mid{from{transform:translateY(-8.6%)}to{transform:translateY(8.6%)}}
+@keyframes pbx-fast{from{transform:translateY(-12.9%)}to{transform:translateY(12.9%)}}
+@supports (animation-timeline:view()){
+@media (prefers-reduced-motion:no-preference){
+.pbx-layer{animation-timing-function:linear;animation-fill-mode:both;animation-timeline:--pbx;animation-range:cover 0% cover 100%}
+.pbx-l1{animation-name:pbx-slow}
+.pbx-l2{animation-name:pbx-mid}
+.pbx-l3{animation-name:pbx-fast}
+}
+}
+</style>
+<div class="pbx">
+<a class="pbx-static" href="https://github.com/mgilbert1983/mikegilbert.net/tree/main/projects/birdgirl" target="_blank" rel="noopener">
+<img src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/projects/birdgirl/images/banner.jpg" width="2000" height="600" alt="Bird Girl banner" fetchpriority="high" decoding="async">
+</a>
+<div class="pbx-parallax">
+<a class="pbx-layer pbx-l1" href="https://github.com/mgilbert1983/mikegilbert.net/tree/main/parallax-banners/artwork/birdgirl" target="_blank" rel="noopener">
+<img src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/parallax-banners/artwork/birdgirl/PARALLAX_BANNER_BIRDGIRL003.png" width="2000" height="840" alt="Background layer" decoding="async">
+</a>
+<a class="pbx-layer pbx-l2" href="https://github.com/mgilbert1983/mikegilbert.net/tree/main/parallax-banners/artwork/birdgirl" target="_blank" rel="noopener">
+<img src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/parallax-banners/artwork/birdgirl/PARALLAX_BANNER_BIRDGIRL002.png" width="2000" height="840" alt="Middle layer" decoding="async">
+</a>
+<a class="pbx-layer pbx-l3" href="https://github.com/mgilbert1983/mikegilbert.net/tree/main/parallax-banners/artwork/birdgirl" target="_blank" rel="noopener">
+<img src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/parallax-banners/artwork/birdgirl/PARALLAX_BANNER_BIRDGIRL001.png" width="2000" height="840" alt="Front layer" decoding="async">
+</a>
+</div>
+</div>
+
+
+    
 <!-- Eight-image rollover gallery -->
 <div class="g4 w">
 <div class="ro a16">
