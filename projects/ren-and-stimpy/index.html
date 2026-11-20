@@ -9,11 +9,11 @@
     <meta name="theme-color" content="#235ff4">
     <link rel="icon" href="../../assets/img/favicon.png">
 
-    <meta name="description" content="Ren &amp; Stimpy by Mike Gilbert. Art direction and production design.">
+    <meta name="description" content="Ren &amp; Stimpy production work by Mike Gilbert, featuring animation layout and background paint.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mike Gilbert">
     <meta property="og:title" content="Ren &amp; Stimpy">
-    <meta property="og:description" content="Ren &amp; Stimpy by Mike Gilbert. Art direction and production design.">
+    <meta property="og:description" content="Ren &amp; Stimpy production work by Mike Gilbert, featuring animation layout and background paint.">
     <meta property="og:url" content="https://www.mikegilbert.net/projects/ren-and-stimpy/index.html">
     <meta property="og:image" content="https://www.mikegilbert.net/projects/ren-and-stimpy/images/share.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -138,15 +138,30 @@
         }
 
         /* ALL PAGE HEADINGS AND BOLD TEXT USE THE SITE BLUE */
-        .wrap > main h1,
-        .wrap > main h2,
-        .wrap > main h3,
-        .wrap > main h4,
-        .wrap > main h5,
-        .wrap > main h6,
-        .wrap > main b,
-        .wrap > main strong {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        b,
+        strong {
             color: #0669e0;
+        }
+
+        /* BACKGROUND PAINT INTRO: MATCH THE TIGHT GALLERY RHYTHM */
+        .wrap > main > h2.rs-section-heading {
+            margin: 0;
+            padding: 12px 0 8px;
+        }
+
+        .wrap > main p.rs-section-description {
+            margin: 0;
+            padding: 0 0 12px;
+            text-align: justify;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
         }
 
         .split {
@@ -168,18 +183,6 @@
             width: 100%;
             max-width: 100%;
             height: auto;
-        }
-
-        /* GREY DASHED DIVIDER AFTER EACH GALLERY */
-        .rs-divider {
-            display: block;
-            width: 100%;
-            height: 0;
-            margin: 38px 0;
-            padding: 0;
-            border: 0;
-            border-top: 1px dashed #999;
-            background: none;
         }
 
         .wrap > main > h2 {
@@ -364,7 +367,7 @@
         @media (max-width:480px) {
             .rs-gallery-4 {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 8px;
+                gap: 12px;
             }
 
             .wrap > main p,
@@ -548,11 +551,11 @@
                 </div>
             </div>
 
-            <h2>Case Study</h2>
+            <h2 class="rs-section-heading">Case Study</h2>
 
-            <p>
-                Specialized in the background paint process, developing and finishing detailed colour artwork for animated environments, translating established layouts and visual direction into polished production backgrounds. This involved applying colour, shading, lighting, and atmospheric treatments while maintaining consistency across locations, scenes, and sequences.
-                Worked with established colour palettes and stylistic references to ensure backgrounds complemented character designs, supported visual storytelling, and maintained the overall aesthetic of the production. Particular attention was given to colour harmony, depth, perspective, and environmental detail, ensuring each background integrated seamlessly into the finished animation.
+            <p class="rs-section-description">
+                Specialized in background paint, developing and finishing detailed colour artwork for animated environments. This involved translating established layouts and visual direction into polished production backgrounds through colour, shading, lighting, and atmospheric treatments.
+                I worked with established palettes and stylistic references to complement character designs, support visual storytelling, and maintain consistency across locations and sequences, with particular attention to colour harmony, depth, perspective, and environmental detail.
             </p>
 
             <!-- BACKGROUND PAINT GALLERY: TWO, FOUR, FOUR -->
@@ -577,8 +580,7 @@
 
 
             <p class="rs-gallery-caption">
-                Despite substantial production work being completed, the series was ultimately shelved before reaching its intended release on Paramount+. While its distribution plans were put on hold, the project remains a completed body of production work with the potential to find a new distribution opportunity in the near future.
-                Its eventual release remains uncertain, but there is still the possibility that the series will reach audiences through an alternative platform or future distribution arrangement.
+                Although the revival completed substantial production work, it was shelved before its planned release on Paramount+. Its eventual release remains uncertain.
             </p>
 
             <!-- FINAL CREDITS BANNER AND PARALLAX -->
@@ -614,8 +616,8 @@
                     </p>
                 </div>
 
-                <div class="rs-final-image-placeholder" role="img" aria-label="Image placeholder for a final Ren and Stimpy project image">
-                    Image placeholder
+                <div class="rs-final-image-placeholder" role="img" aria-label="Placeholder for a screenshot of the Ren and Stimpy production credits listing Mike Gilbert and his department">
+                    Production credits screenshot
                 </div>
             </div>
 
