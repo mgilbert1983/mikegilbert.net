@@ -1,0 +1,79 @@
+<!-- ===== STATIC + PARALLAX BANNER (copy everything from here to the end) ===== -->
+<style>
+  .pbx { width: 100%; max-width: 2000px; margin: 0 auto; padding: 0; line-height: 0; font-size: 0; }
+  .pbx * { box-sizing: border-box; }
+
+  /* Static banner (top) */
+  .pbx-static { display: block; width: 100%; aspect-ratio: 2000 / 600; overflow: hidden; }
+  .pbx-static img { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; }
+
+  /* Parallax banner (bottom) – sits flush under the static one */
+  .pbx-parallax { position: relative; width: 100%; aspect-ratio: 2000 / 600; overflow: hidden; background: #111; }
+
+  /* Each layer is 140% as tall as the banner so it has room to travel */
+  .pbx-layer { position: absolute; left: 0; top: -20%; width: 100%; height: 140%; display: block; will-change: transform; transform: translate3d(0,0,0); }
+  .pbx-layer img { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; }
+
+  @media (prefers-reduced-motion: reduce) { .pbx-layer { transform: none !important; } }
+</style>
+
+<div class="pbx">
+
+  <!-- STATIC BANNER: replace the href and src -->
+  <a class="pbx-static" href="https://github.com/YOUR-USER/YOUR-REPO" target="_blank" rel="noopener">
+    <img src="https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/static-banner.jpg"
+         width="2000" height="600" alt="Static banner" fetchpriority="high" decoding="async">
+  </a>
+
+  <!-- PARALLAX BANNER: data-speed = how far each layer drifts (0.06 slow … 0.18 fast) -->
+  <div class="pbx-parallax" id="pbx-parallax">
+
+    <!-- Layer 1: back (slowest). JPG, PNG or SVG -->
+    <a class="pbx-layer" data-speed="0.06" href="https://github.com/YOUR-USER/YOUR-REPO" target="_blank" rel="noopener">
+      <img src="https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/layer-back.jpg"
+           width="2000" height="840" alt="Background layer" decoding="async">
+    </a>
+
+    <!-- Layer 2: middle. Use a transparent PNG or SVG -->
+    <a class="pbx-layer" data-speed="0.12" href="https://github.com/YOUR-USER/YOUR-REPO" target="_blank" rel="noopener">
+      <img src="https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/layer-middle.png"
+           width="2000" height="840" alt="Middle layer" decoding="async">
+    </a>
+
+    <!-- Layer 3: front (fastest). Use a transparent PNG or SVG -->
+    <a class="pbx-layer" data-speed="0.18" href="https://github.com/YOUR-USER/YOUR-REPO" target="_blank" rel="noopener">
+      <img src="https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/layer-front.svg"
+           width="2000" height="840" alt="Front layer" decoding="async">
+    </a>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var box = document.getElementById('pbx-parallax');
+  if (!box) return;
+  var layers = box.querySelectorAll('.pbx-layer');
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var r = box.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    if (r.bottom < 0 || r.top > vh) return;            // off-screen: skip work
+    // progress: -1 (banner entering at bottom) → 0 (centered) → 1 (leaving at top)
+    var p = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
+    for (var i = 0; i < layers.length; i++) {
+      var s = parseFloat(layers[i].getAttribute('data-speed')) || 0;
+      layers[i].style.transform = 'translate3d(0,' + (p * s * r.height).toFixed(1) + 'px,0)';
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+<!-- ===== END ===== -->
