@@ -343,6 +343,12 @@
 
         /* RESPONSIVE AND ACCESSIBILITY */
         @media (max-width:760px) {
+            /* Keep more of each wide composition visible on narrow screens. */
+            .rs-parallax-layer img {
+                object-position: 50% 50%;
+                transform: scale(1.16);
+            }
+
             .wrap {
                 grid-template-columns: 1fr;
             }
@@ -684,6 +690,9 @@
                         (vh / 2 + rect.height / 2);
 
                     var speed = parseFloat(layer.getAttribute('data-speed')) || 0.12;
+                    if (window.matchMedia('(max-width:760px)').matches) {
+                        speed = 0.08;
+                    }
                     var movement = progress * speed * rect.height;
 
                     layer.style.transform =
