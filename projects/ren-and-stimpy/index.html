@@ -343,14 +343,6 @@
 
         /* RESPONSIVE AND ACCESSIBILITY */
         @media (max-width:760px) {
-            /* Mobile: raise the initial artwork framing substantially. The parent layer
-               moves independently, panning the artwork downward as the page scrolls. */
-            .rs-parallax-layer img {
-                object-position: 50% 50%;
-                transform: translate3d(0, -18%, 0) scale(1.32);
-                transform-origin: 50% 50%;
-            }
-
             .wrap {
                 grid-template-columns: 1fr;
             }
@@ -692,9 +684,6 @@
                         (vh / 2 + rect.height / 2);
 
                     var speed = parseFloat(layer.getAttribute('data-speed')) || 0.12;
-                    if (window.matchMedia('(max-width:760px)').matches) {
-                        speed = 0.08;
-                    }
                     var movement = progress * speed * rect.height;
 
                     layer.style.transform =
