@@ -343,10 +343,12 @@
 
         /* RESPONSIVE AND ACCESSIBILITY */
         @media (max-width:760px) {
-            /* Keep more of each wide composition visible on narrow screens. */
+            /* Mobile: keep the artwork covering the frame while biasing the
+               initial crop upward. The parent layer then pans downward on scroll. */
             .rs-parallax-layer img {
                 object-position: 50% 50%;
-                transform: scale(1.16);
+                transform: translate3d(0, -6%, 0) scale(1.32);
+                transform-origin: 50% 50%;
             }
 
             .wrap {
