@@ -343,11 +343,11 @@
 
         /* RESPONSIVE AND ACCESSIBILITY */
         @media (max-width:760px) {
-            /* Mobile: keep the artwork covering the frame while biasing the
-               initial crop upward. The parent layer then pans downward on scroll. */
+            /* Mobile: raise the initial artwork framing substantially. The parent layer
+               moves independently, panning the artwork downward as the page scrolls. */
             .rs-parallax-layer img {
                 object-position: 50% 50%;
-                transform: translate3d(0, -6%, 0) scale(1.32);
+                transform: translate3d(0, -18%, 0) scale(1.32);
                 transform-origin: 50% 50%;
             }
 
