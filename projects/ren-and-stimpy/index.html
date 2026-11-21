@@ -287,6 +287,7 @@
             display: block;
             will-change: transform;
             transform: translate3d(0,0,0);
+            transform-origin: 50% 50%;
         }
 
         /* EXTRA COVERAGE TO HIDE IMAGE EDGES DURING PANNING */
@@ -299,9 +300,9 @@
             height: 100%;
             max-width: none;
             object-fit: cover;
-            object-position: center;
+            object-position: 50% 50%;
             transform: scale(1.24);
-            transform-origin: center;
+            transform-origin: 50% 50%;
         }
 
         /* FINAL CREDITS SECTION: RESPONSIVE HALF-IMAGE / HALF-TEXT SPLIT */
