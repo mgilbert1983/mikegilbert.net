@@ -1,6 +1,734 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mike Gilbert</title><meta name="theme-color" content="#235ff4"><link rel="icon" href="assets/img/favicon.png"><link rel="prefetch" href="home/index.html"><meta name="description" content="Mike Gilbert, Art Director and 2D Broadcast Production Artist in Vancouver. Animation, illustration, graphic design and motion graphics."><meta property="og:title" content="Mike Gilbert"><meta property="og:description" content="Mike Gilbert, Art Director and 2D Broadcast Production Artist in Vancouver. Animation, illustration, graphic design and motion graphics."><meta property="og:image" content="https://www.mikegilbert.net/assets/img/share.jpg"><meta property="og:url" content="https://www.mikegilbert.net/"><meta name="twitter:card" content="summary_large_image"><style>@font-face{font-family:Gotham;font-weight:300;font-style:normal;font-display:swap;src:local("Gotham Book"),url(assets/fonts/Gotham-Book.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:300;font-style:italic;font-display:swap;src:local("Gotham Book Italic"),url(assets/fonts/Gotham-BookItalic.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:400;font-style:normal;font-display:swap;src:local("Gotham Regular"),url(assets/fonts/Gotham-Regular.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:400;font-style:italic;font-display:swap;src:local("Gotham Regular Italic"),url(assets/fonts/Gotham-RegularItalic.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:500;font-style:normal;font-display:swap;src:local("Gotham Medium"),url(assets/fonts/Gotham-Medium.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:500;font-style:italic;font-display:swap;src:local("Gotham Medium Italic"),url(assets/fonts/Gotham-MediumItalic.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:700;font-style:normal;font-display:swap;src:local("Gotham Bold"),url(assets/fonts/Gotham-Bold.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:700;font-style:italic;font-display:swap;src:local("Gotham Bold Italic"),url(assets/fonts/Gotham-BoldItalic.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:900;font-style:normal;font-display:swap;src:local("Gotham Ultra"),url(assets/fonts/Gotham-Ultra.woff2) format("woff2")}@font-face{font-family:Gotham;font-weight:900;font-style:italic;font-display:swap;src:local("Gotham Ultra Italic"),url(assets/fonts/Gotham-UltraItalic.woff2) format("woff2")}*{margin:0;box-sizing:border-box}html,body{height:100%;background:#235ff4;overflow:hidden}#logo{position:fixed;top:46%;left:50%;width:min(40vw,420px);height:auto;transform:translate(-50%,-50%);transition:opacity .25s}#go{position:fixed;left:50%;bottom:12%;transform:translateX(-50%);background:none;border:0;color:#fff;font:500 15px Gotham,"Century Gothic",Montserrat,Arial,sans-serif;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;padding:16px 24px;opacity:0;pointer-events:none;transition:opacity .8s}#go.on{opacity:1;pointer-events:auto}body.out #logo,body.out #go{opacity:0;transition-duration:.25s}#go:focus-visible{outline:2px solid #fff}</style></head><body><img id="logo" src="assets/img/MIKE_SIGNATURE.gif" width="1200" height="565" alt="Mike Gilbert" data-ms="2600"><button id="go">Click to enter</button><script>const L=document.getElementById('logo'),G=document.getElementById('go');let ready=false,done=false;
-const still=()=>{L.src='assets/img/logo.png';ready=true;G.classList.add('on');G.focus({preventScroll:true})};
-if(matchMedia('(prefers-reduced-motion:reduce)').matches)still();
-else{const s=()=>setTimeout(still,+L.dataset.ms+150);if(L.complete)s();else L.onload=()=>{L.onload=null;s()}}
-function enter(){if(!ready||done)return;done=true;try{sessionStorage.s=1}catch(e){}document.body.classList.add('out');setTimeout(()=>location.href='home/index.html',250)}
-document.addEventListener('click',enter);addEventListener('pageshow',e=>{if(e.persisted)location.reload()});</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Ren &amp; Stimpy | Mike Gilbert</title>
+
+    <meta name="theme-color" content="#235ff4">
+    <link rel="icon" href="../../assets/img/favicon.png">
+
+    <meta name="description" content="Ren &amp; Stimpy production work by Mike Gilbert, featuring animation layout and background paint.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mike Gilbert">
+    <meta property="og:title" content="Ren &amp; Stimpy">
+    <meta property="og:description" content="Ren &amp; Stimpy production work by Mike Gilbert, featuring animation layout and background paint.">
+    <meta property="og:url" content="https://www.mikegilbert.net/projects/ren-and-stimpy/index.html">
+    <meta property="og:image" content="https://www.mikegilbert.net/projects/ren-and-stimpy/images/share.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <style>
+        /* PROJECT COLUMN WIDTH AND ALIGNMENT */
+
+        .wrap {
+            grid-template-columns: clamp(150px, 21.5vw, 323px) minmax(0, 1fr);
+        }
+
+        .wrap > main {
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .wrap > main > * {
+            box-sizing: border-box;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        /* TEXT BLOCKS: GENEROUS VERTICAL BREATHING ROOM */
+        .wrap > main p {
+            margin: 0;
+            padding: 38px 0;
+            text-align: justify;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+            overflow-wrap: normal;
+            word-break: normal;
+        }
+
+        .rs-intro {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 2000px;
+            min-width: 0;
+            margin: 0;
+            padding: 38px 0;
+        }
+
+        .rs-intro p {
+            width: 100%;
+            max-width: 2000px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap > main > img,
+        .wrap > main > .rs-gallery,
+        .wrap > main > .split,
+        .wrap > main > .rs-banners {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        /* GALLERIES: TWO-UP AND FOUR-UP ROWS */
+        .rs-gallery {
+            display: grid;
+            width: 100%;
+            max-width: 100%;
+            column-gap: 12px;
+            row-gap: 12px;
+            margin: 0;
+            padding: 0;
+            min-width: 0;
+        }
+
+        /* KEEP THE SAME TIGHT GAP BETWEEN EVERY GALLERY ROW */
+        .rs-gallery + .rs-gallery,
+        .rs-banners + .rs-gallery {
+            margin-top: 12px;
+        }
+
+        /* BRING THE FOLLOWING COPY CLOSER TO THE LAST IMAGE ROW,
+           WHILE PRESERVING ITS EXISTING LOWER BUFFER */
+        .wrap > main p.rs-gallery-caption {
+            margin: 0;
+            padding: 12px 0 38px;
+        }
+
+        .rs-gallery-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .rs-gallery-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .rs-gallery img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            min-width: 0;
+        }
+
+        .rs-image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-width: 0;
+            aspect-ratio: 8 / 5;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px dashed #999;
+            background: #f2f2f2;
+            color: #666;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* ALL PAGE HEADINGS AND BOLD TEXT USE THE SITE BLUE */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        b,
+        strong {
+            color: #0669e0;
+        }
+
+        /* BACKGROUND PAINT INTRO: MATCH THE TIGHT GALLERY RHYTHM */
+        .wrap > main > h2.rs-section-heading {
+            margin: 0;
+            padding: 12px 0 8px;
+        }
+
+        .wrap > main p.rs-section-description {
+            margin: 0;
+            padding: 0 0 12px;
+            text-align: justify;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            align-items: center;
+            min-width: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .split p {
+            padding: 0;
+        }
+
+        .split img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .wrap > main > h2 {
+            margin: 0;
+            padding: 38px 0 12px;
+        }
+
+        .co,
+        .pn {
+            margin-top: 38px;
+        }
+
+        /* HOME BUTTON ROLLOVER */
+
+        header .home {
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
+
+        header .home img {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity .3s ease;
+        }
+
+        header .home .hb-a {
+            opacity: 1;
+        }
+
+        header .home .hb-b {
+            opacity: 0;
+        }
+
+        @media (hover:hover) {
+            header .home:hover .hb-a,
+            header .home:focus-visible .hb-a {
+                opacity: 0;
+            }
+
+            header .home:hover .hb-b,
+            header .home:focus-visible .hb-b {
+                opacity: 1;
+            }
+        }
+
+        header .home:focus-visible {
+            outline: 3px solid #235ff4;
+            outline-offset: 4px;
+        }
+
+        /* ACTIVE ANIMATION NAVIGATION */
+
+        #nav a.on,
+        #nav a[aria-current="page"] {
+            color: #0669e0 !important;
+            font-weight: 900 !important;
+        }
+
+        /* STATIC AND PARALLAX BANNERS */
+
+        .rs-banners {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+            overflow: hidden;
+        }
+
+        .rs-banners > img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .rs-parallax {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 10 / 3;
+            overflow: hidden;
+            background: #0786d4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .rs-parallax-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            will-change: transform;
+            transform: translate3d(0,0,0);
+            transform-origin: 50% 50%;
+        }
+
+        /* EXTRA COVERAGE TO HIDE IMAGE EDGES DURING PANNING */
+
+        .rs-parallax-layer img {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+            object-position: 50% 50%;
+            transform: scale(1.24);
+            transform-origin: 50% 50%;
+        }
+
+        /* FINAL CREDITS SECTION: RESPONSIVE HALF-IMAGE / HALF-TEXT SPLIT */
+        .rs-final-split {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            align-items: stretch;
+            width: 100%;
+            max-width: 100%;
+            margin: 38px 0;
+        }
+
+        .rs-final-split .rs-final-copy {
+            min-width: 0;
+            align-self: center;
+        }
+
+        .rs-final-split .rs-final-copy p {
+            padding: 0;
+        }
+
+        .rs-final-image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+            min-height: 280px;
+            aspect-ratio: 4 / 3;
+            padding: 24px;
+            border: 1px dashed #999;
+            background: #f2f2f2;
+            color: #666;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* RESPONSIVE AND ACCESSIBILITY */
+        @media (max-width:760px) {
+            /* Mobile artwork begins 25% of the banner height higher. The script
+               gradually pans it down to its neutral endpoint as the banner reaches
+               the top of the viewport. */
+            .rs-parallax-layer img {
+                object-position: 50% 50%;
+                transform: translate3d(0, 0, 0) scale(1.32);
+                transform-origin: 50% 50%;
+            }
+
+            .wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .wrap > main {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .rs-gallery-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .rs-final-split {
+                grid-template-columns: 1fr;
+            }
+
+            .rs-final-image-placeholder {
+                min-height: 220px;
+            }
+        }
+
+        @media (max-width:480px) {
+            .rs-gallery-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .wrap > main p,
+            .rs-intro {
+                padding-top: 28px;
+                padding-bottom: 28px;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            header .home img {
+                transition: none;
+            }
+
+            .rs-parallax-layer {
+                transform: none !important;
+            }
+        }
+    </style>
+
+    <script>
+        try {
+            if (sessionStorage.s) {
+                document.documentElement.className = "fi";
+                sessionStorage.removeItem("s");
+            }
+        } catch (e) {}
+    </script>
+
+    <script src="../../assets/js/main.js" defer></script>
+</head>
+
+<body class="proj">
+    <div class="wrap">
+
+        <header>
+            <a class="home" href="../../home/index.html" aria-label="Home">
+                <img
+                    class="hb-a"
+                    src="../../about/images/HOME_BUTTON_001.jpg"
+                    width="600"
+                    height="600"
+                    alt="Mike Gilbert"
+                    decoding="async"
+                >
+                <img
+                    class="hb-b"
+                    src="../../about/images/HOME_BUTTON_002.jpg"
+                    width="600"
+                    height="600"
+                    alt=""
+                    aria-hidden="true"
+                    decoding="async"
+                >
+            </a>
+
+            <button class="mt" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+                <i></i>
+                <i></i>
+                <i></i>
+            </button>
+
+            <nav id="nav" aria-label="Main">
+                <a href="../../animation/index.html" class="on" aria-current="page">Animation</a>
+                <a href="../../illustration/index.html">Illustration</a>
+                <a href="../../graphic-design/index.html">Graphic Design</a>
+                <a href="../../motion-graphics/index.html">Motion Graphics</a>
+                <a href="../../about/index.html">About</a>
+                <a href="../../contact/index.html">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- STATIC BANNER -->
+            <div class="rs-banners">
+                <img
+                    src="images/banner.jpg"
+                    width="2000"
+                    height="600"
+                    alt="Ren &amp; Stimpy banner"
+                    decoding="async"
+                    fetchpriority="high"
+                >
+
+                <!-- PARALLAX BANNER -->
+                <div class="rs-parallax" id="rs-parallax">
+                    <div class="rs-parallax-layer" data-speed="0.24">
+                        <img
+                            src="../../parallax-banners/artwork/ren-and-stimpy/PARALLAX_BANNER_R%26S.png"
+                            width="2000"
+                            height="600"
+                            alt="Ren and Stimpy parallax artwork"
+                            decoding="async"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="rs-intro">
+                <h2>Case Study</h2>
+                <p>
+                    My work on the 2024 <b>Ren &amp; Stimpy</b> revival for Paramount+ involved both the Layout and Paint departments. As part of the layout team from January to October 2023, I translated storyboards into production-ready scene setups, establishing character staging, perspective, proportions, camera composition, and environmental continuity.
+                    This included preparing backgrounds and foreground elements, refining character placement and posing, and ensuring scenes were technically and visually ready for animation. I subsequently transitioned into the Paint department, working under Mark Whiting to contribute to the show's distinctive colour styling and finished artwork.
+                    The production required careful attention to the original series' exaggerated visual language, maintaining the expressive character designs, unconventional proportions, and strong graphic sensibility that define the property.
+                </p>
+            </div>
+
+            <!-- FIRST SECTION BANNER AND PARALLAX -->
+            <div class="rs-banners rs-banners-first-section">
+                <img
+                    src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/assets/img/banner_background_layout.jpg"
+                    width="2000"
+                    height="200"
+                    alt="Ren &amp; Stimpy background layout banner"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="rs-parallax" id="rs-parallax-2">
+                    <div class="rs-parallax-layer" data-speed="0.24">
+                        <img
+                            src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/parallax-banners/artwork/ren-and-stimpy/PARALLAX_BANNER_R%26S_002.png"
+                            width="2000"
+                            height="600"
+                            alt="Ren and Stimpy background layout parallax artwork"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- LAYOUT GALLERY: TWO, FOUR, THEN THE REMAINING TWO AVAILABLE IMAGES -->
+            <div class="rs-gallery rs-gallery-2">
+                <img src="images/image-001.jpg" width="1600" height="1000" alt="Ren &amp; Stimpy image 1" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-002.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 2" data-lb tabindex="0" loading="lazy" decoding="async">
+            </div>
+
+            <div class="rs-gallery rs-gallery-4">
+                <img src="images/image-003.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 3" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-004.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 4" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-005.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 5" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-006.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 6" data-lb tabindex="0" loading="lazy" decoding="async">
+            </div>
+
+            <div class="rs-gallery rs-gallery-4">
+                <img src="images/image-007.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 7" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-008.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 8" data-lb tabindex="0" loading="lazy" decoding="async">
+                <div class="rs-image-placeholder" role="img" aria-label="Placeholder for layout image 009">Image 009 placeholder</div>
+                <div class="rs-image-placeholder" role="img" aria-label="Placeholder for layout image 010">Image 010 placeholder</div>
+            </div>
+
+
+            <p class="rs-gallery-caption">
+                Contributed to the visual development of Ren &amp; Stimpy through the creation of detailed black-and-white scene layouts, translating storyboards into fully constructed environments and animation-ready compositions. This involved refining character staging, perspective, camera angles, and environmental details while ensuring strong visual continuity, accurate proportions, and the exaggerated drawing style that defines the series.
+            </p>
+
+            <!-- SECOND SECTION: BACKGROUND PAINT BANNER AND PARALLAX -->
+            <div class="rs-banners rs-banners-secondary">
+                <img
+                    src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/assets/img/banner_background_paint.jpg"
+                    width="2000"
+                    height="200"
+                    alt="Ren &amp; Stimpy background paint banner"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="rs-parallax" id="rs-parallax-3">
+                    <div class="rs-parallax-layer" data-speed="0.24">
+                        <img
+                            src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/parallax-banners/artwork/ren-and-stimpy/PARALLAX_BANNER_R%26S_003.png"
+                            width="2000"
+                            height="600"
+                            alt="Ren and Stimpy background paint parallax artwork"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="rs-section-heading">Case Study</h2>
+
+            <p class="rs-section-description">
+                Specialized in background paint, developing and finishing detailed colour artwork for animated environments. This involved translating established layouts and visual direction into polished production backgrounds through colour, shading, lighting, and atmospheric treatments.
+                I worked with established palettes and stylistic references to complement character designs, support visual storytelling, and maintain consistency across locations and sequences, with particular attention to colour harmony, depth, perspective, and environmental detail.
+            </p>
+
+            <!-- BACKGROUND PAINT GALLERY: TWO, FOUR, FOUR -->
+            <div class="rs-gallery rs-gallery-2">
+                <img src="images/image-011.jpg" width="2000" height="600" alt="Ren &amp; Stimpy image 11" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-012.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 12" data-lb tabindex="0" loading="lazy" decoding="async">
+            </div>
+
+            <div class="rs-gallery rs-gallery-4">
+                <img src="images/image-013.jpg" width="1600" height="1000" alt="Ren &amp; Stimpy image 13" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-014.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 14" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-015.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 15" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-016.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 16" data-lb tabindex="0" loading="lazy" decoding="async">
+            </div>
+
+            <div class="rs-gallery rs-gallery-4">
+                <img src="images/image-017.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 17" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-018.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 18" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-019.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 19" data-lb tabindex="0" loading="lazy" decoding="async">
+                <img src="images/image-020.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 20" data-lb tabindex="0" loading="lazy" decoding="async">
+            </div>
+
+
+            <p class="rs-gallery-caption">
+                Although the revival completed substantial production work, it was shelved before its planned release on Paramount+. Its eventual release remains uncertain.
+            </p>
+
+            <!-- FINAL CREDITS BANNER AND PARALLAX -->
+            <div class="rs-banners rs-banners-credits">
+                <img
+                    src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/assets/img/banner_credits.jpg"
+                    width="2000"
+                    height="200"
+                    alt="Ren &amp; Stimpy credits banner"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="rs-parallax" id="rs-parallax-4">
+                    <div class="rs-parallax-layer" data-speed="0.24">
+                        <img
+                            src="https://raw.githubusercontent.com/mgilbert1983/mikegilbert.net/main/parallax-banners/artwork/ren-and-stimpy/PARALLAX_BANNER_R%26S_004.png"
+                            width="2000"
+                            height="600"
+                            alt="Ren and Stimpy credits parallax artwork"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- FINAL TEXT AND IMAGE PLACEHOLDER -->
+            <div class="rs-final-split">
+                <div class="rs-final-copy">
+                    <p>
+                        This collection brings together selected work from my contribution to the Ren &amp; Stimpy revival, spanning production layout and background paint. The material reflects the collaborative process of translating storyboards and established visual direction into finished, production-ready artwork.
+                    </p>
+                </div>
+
+                <div class="rs-final-image-placeholder" role="img" aria-label="Placeholder for a screenshot of the Ren and Stimpy production credits listing Mike Gilbert and his department">
+                    Production credits screenshot
+                </div>
+            </div>
+
+            <div class="co">
+                <img src="images/company-logo-001.png" width="400" height="160" alt="Company 1" loading="lazy">
+                <img src="images/company-logo-002.png" width="400" height="160" alt="Company 2" loading="lazy">
+            </div>
+
+            <div class="pn">
+                <a class="p" href="../rushden-and-diamonds-2020/index.html" rel="prev" aria-label="Previous project: Rushden &amp; Diamonds - 2020">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 12h17M14 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
+                    </svg>
+                    <span>Rushden &amp; Diamonds - 2020</span>
+                </a>
+
+                <a class="n" href="../michael-rushden-fiero/index.html" rel="next" aria-label="Next project: Michael Rushden - Fiero">
+                    <span>Michael Rushden - Fiero</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 12h17M14 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
+                    </svg>
+                </a>
+            </div>
+
+            <footer>
+                <hr>
+                <p>&copy; 2026 Mike Gilbert. All rights reserved.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- MULTI-IMAGE PARALLAX SCROLL SCRIPT -->
+    <script>
+        (function () {
+            var boxes = document.querySelectorAll('.rs-parallax');
+
+            if (!boxes.length) return;
+
+            var ticking = false;
+
+            function update() {
+                ticking = false;
+
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    boxes.forEach(function (box) {
+                        var layer = box.querySelector('.rs-parallax-layer');
+                        if (layer) layer.style.transform = 'none';
+                    });
+                    return;
+                }
+
+                var vh = window.innerHeight || document.documentElement.clientHeight;
+
+                boxes.forEach(function (box) {
+                    var layer = box.querySelector('.rs-parallax-layer');
+                    if (!layer) return;
+
+                    var rect = box.getBoundingClientRect();
+                    if (rect.bottom < 0 || rect.top > vh) return;
+
+                    if (window.matchMedia('(max-width:760px)').matches) {
+                        /* Start 25% high when the banner enters from below. Once its
+                           top reaches the viewport top, the artwork reaches neutral. */
+                        var image = layer.querySelector('img');
+                        if (!image) return;
+
+                        var progress = Math.max(0, Math.min(1, (vh - rect.top) / vh));
+                        var offset = -0.25 * rect.height * (1 - progress);
+
+                        layer.style.transform = 'translate3d(0,0,0)';
+                        image.style.transform =
+                            'translate3d(0,' + offset.toFixed(1) + 'px,0) scale(1.32)';
+                        return;
+                    }
+
+                    var progress = (vh / 2 - (rect.top + rect.height / 2)) /
+                        (vh / 2 + rect.height / 2);
+
+                    var speed = parseFloat(layer.getAttribute('data-speed')) || 0.12;
+                    var movement = progress * speed * rect.height;
+
+                    layer.style.transform =
+                        'translate3d(0,' + movement.toFixed(1) + 'px,0)';
+                });
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    ticking = true;
+                    requestAnimationFrame(update);
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            window.addEventListener('load', update);
+
+            update();
+        })();
+    </script>
+
+</body>
+</html>
