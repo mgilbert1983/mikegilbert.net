@@ -225,6 +225,141 @@
             margin-bottom: 38px;
         }
 
+        /* PROJECT NAVIGATION: CLEAN TEXT LINKS WITH ARROWS KEPT INSIDE THE FRAME */
+        .wrap > main > .pn {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 24px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 0 12px;
+            overflow: visible;
+        }
+
+        .wrap > main > .pn > a,
+        .wrap > main > .pn > a:link,
+        .wrap > main > .pn > a:visited {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-sizing: border-box;
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: calc(50% - 12px);
+            padding: 18px 16px;
+            border: 1px solid rgba(6, 105, 224, .28);
+            border-radius: 2px;
+            background: transparent;
+            color: #0669e0;
+            text-decoration: none;
+            white-space: normal;
+            overflow: visible;
+            transform: none;
+            transition: background-color .2s ease, border-color .2s ease;
+        }
+
+        .wrap > main > .pn > a.n {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .wrap > main > .pn > a > span {
+            min-width: 0;
+            overflow-wrap: anywhere;
+            line-height: 1.35;
+        }
+
+        .wrap > main > .pn > a::before {
+            display: block;
+            flex: 0 0 auto;
+            color: #0669e0;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            line-height: 1.2;
+        }
+
+        .wrap > main > .pn > a.p::before {
+            content: "PREVIOUS PROJECT";
+        }
+
+        .wrap > main > .pn > a.n::before {
+            content: "NEXT PROJECT";
+            order: 2;
+        }
+
+        .wrap > main > .pn > a > svg {
+            display: block;
+            flex: 0 0 22px;
+            width: 22px;
+            height: 22px;
+            max-width: 22px;
+            overflow: visible;
+            transition: transform .2s ease;
+        }
+
+        .wrap > main > .pn > a.p > svg {
+            order: -1;
+            transform: rotate(180deg);
+        }
+
+        .wrap > main > .pn > a.n > svg {
+            order: 3;
+        }
+
+        @media (hover:hover) {
+            .wrap > main > .pn > a:hover,
+            .wrap > main > .pn > a:focus-visible {
+                background: rgba(6, 105, 224, .055);
+                border-color: #0669e0;
+            }
+
+            .wrap > main > .pn > a.p:hover > svg,
+            .wrap > main > .pn > a.p:focus-visible > svg {
+                transform: translateX(-4px) rotate(180deg);
+            }
+
+            .wrap > main > .pn > a.n:hover > svg,
+            .wrap > main > .pn > a.n:focus-visible > svg {
+                transform: translateX(4px);
+            }
+        }
+
+        .wrap > main > .pn > a:focus-visible {
+            outline: 2px solid #0669e0;
+            outline-offset: 3px;
+        }
+
+        @media (max-width:560px) {
+            .wrap > main > .pn {
+                gap: 12px;
+                padding: 0 4px;
+            }
+
+            .wrap > main > .pn > a,
+            .wrap > main > .pn > a:link,
+            .wrap > main > .pn > a:visited {
+                gap: 8px;
+                padding: 14px 10px;
+                max-width: calc(50% - 6px);
+                font-size: 13px;
+            }
+
+            .wrap > main > .pn > a::before {
+                font-size: 8px;
+                letter-spacing: .06em;
+            }
+
+            .wrap > main > .pn > a > svg {
+                flex-basis: 18px;
+                width: 18px;
+                height: 18px;
+                max-width: 18px;
+            }
+        }
+
         /* HOME BUTTON ROLLOVER */
 
         header .home {
