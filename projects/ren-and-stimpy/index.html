@@ -120,6 +120,22 @@
             min-width: 0;
         }
 
+        /* IMAGE 001: RAISE THE ARTWORK WITHIN ITS ORIGINAL FRAME */
+        .rs-image-001-frame {
+            width: 100%;
+            min-width: 0;
+            aspect-ratio: 8 / 5;
+            overflow: hidden;
+        }
+
+        .rs-image-001-frame img {
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            object-position: 50% 50%;
+            transform: translateY(-17.5%);
+        }
+
         .rs-image-placeholder {
             display: flex;
             align-items: center;
@@ -504,7 +520,9 @@
 
             <!-- LAYOUT GALLERY: TWO, FOUR, THEN THE REMAINING TWO AVAILABLE IMAGES -->
             <div class="rs-gallery rs-gallery-2">
-                <img src="images/image-001.jpg" width="1600" height="1000" alt="Ren &amp; Stimpy image 1" data-lb tabindex="0" loading="lazy" decoding="async">
+                <div class="rs-image-001-frame">
+                    <img src="images/image-001.jpg" width="1600" height="1000" alt="Ren &amp; Stimpy image 1" data-lb tabindex="0" loading="lazy" decoding="async">
+                </div>
                 <img src="images/image-002.jpg" width="1200" height="750" alt="Ren &amp; Stimpy image 2" data-lb tabindex="0" loading="lazy" decoding="async">
             </div>
 
