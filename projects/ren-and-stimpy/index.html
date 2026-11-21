@@ -173,11 +173,21 @@
 
         .wrap > main p.rs-section-description {
             margin: 0;
-            padding: 0 0 12px;
+            padding: 0 0 38px;
             text-align: justify;
             -webkit-hyphens: none;
             -ms-hyphens: none;
             hyphens: none;
+        }
+
+        /* MATCH BOTH SECTION CASE STUDIES TO THE GENEROUS FIRST INTRO */
+        .wrap > main > h2.rs-section-heading {
+            padding: 38px 0 12px;
+        }
+
+        /* KEEP A CLEAR BUFFER BETWEEN THE LAST GALLERY ROW AND NEXT BANNER */
+        .wrap > main > .rs-gallery + .rs-banners {
+            margin-top: 12px !important;
         }
 
         .split {
@@ -394,6 +404,14 @@
             .wrap > main p,
             .rs-intro {
                 padding-top: 28px;
+                padding-bottom: 28px;
+            }
+
+            .wrap > main > h2.rs-section-heading {
+                padding-top: 28px;
+            }
+
+            .wrap > main p.rs-section-description {
                 padding-bottom: 28px;
             }
         }
