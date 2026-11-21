@@ -345,6 +345,78 @@
             .wrap > main > .pn > a > svg { width: 23px; height: 23px; max-width: 23px; }
         }
 
+        /* PROJECT NAVIGATION: SMALL, QUIET LINKS CLOSE TO THE FOOTER */
+        .wrap > main > .pn {
+            gap: 28px;
+            margin-top: 16px;
+            margin-bottom: 10px;
+            padding: 0 18px;
+        }
+
+        .wrap > main > .pn > a,
+        .wrap > main > .pn > a:link,
+        .wrap > main > .pn > a:visited {
+            grid-template-columns: 20px minmax(0, 1fr);
+            column-gap: 9px;
+            row-gap: 3px;
+            padding: 5px 0;
+        }
+
+        .wrap > main > .pn > a::before {
+            color: #999;
+            font-size: 8px;
+            font-weight: 400;
+            letter-spacing: .13em;
+        }
+
+        .wrap > main > .pn > a > svg {
+            width: 17px;
+            height: 17px;
+            max-width: 17px;
+            color: #777;
+            stroke-width: 1.5;
+        }
+
+        .wrap > main > .pn > a > span {
+            color: #555;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.35;
+        }
+
+        .wrap > main > .pn > a.n {
+            grid-template-columns: minmax(0, 1fr) 20px;
+        }
+
+        @media (hover:hover) {
+            .wrap > main > .pn > a:hover,
+            .wrap > main > .pn > a:focus-visible { opacity: 1; }
+            .wrap > main > .pn > a:hover::before,
+            .wrap > main > .pn > a:focus-visible::before { color: #0669e0; }
+            .wrap > main > .pn > a:hover > span,
+            .wrap > main > .pn > a:focus-visible > span { color: #0669e0; }
+            .wrap > main > .pn > a.p:hover > svg,
+            .wrap > main > .pn > a.p:focus-visible > svg { transform: translateX(-3px) rotate(180deg); color: #0669e0; }
+            .wrap > main > .pn > a.n:hover > svg,
+            .wrap > main > .pn > a.n:focus-visible > svg { transform: translateX(3px); color: #0669e0; }
+        }
+
+        @media (max-width:560px) {
+            .wrap > main > .pn { gap: 14px; padding: 0 4px; }
+            .wrap > main > .pn > a,
+            .wrap > main > .pn > a:link,
+            .wrap > main > .pn > a:visited {
+                grid-template-columns: 17px minmax(0, 1fr);
+                column-gap: 6px;
+                row-gap: 3px;
+                padding: 5px 0;
+            }
+            .wrap > main > .pn > a.n { grid-template-columns: minmax(0, 1fr) 17px; }
+            .wrap > main > .pn > a::before { font-size: 7px; letter-spacing: .08em; }
+            .wrap > main > .pn > a > span { font-size: 10px; }
+            .wrap > main > .pn > a > svg { width: 15px; height: 15px; max-width: 15px; }
+        }
+
         /* HOME BUTTON ROLLOVER */
 
         header .home {
